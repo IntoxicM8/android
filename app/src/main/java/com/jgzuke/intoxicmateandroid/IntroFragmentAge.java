@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 public class IntroFragmentAge extends IntroFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_intro_welcome, container, false);
+        View v = inflater.inflate(R.layout.fragment_intro_age, container, false);
         return v;
     }
 }

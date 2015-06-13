@@ -40,7 +40,7 @@ public class IntroActivity extends AppIntro {
         Context context = getApplicationContext();
         for(int i = 0; i < NUM_INTRO_SCREENS; i++) {
             mIntroFragments[i].setActivity(this);
-            addSlide(new IntroFragmentWelcome(), context);
+            addSlide(mIntroFragments[i], context);
         }
     }
 

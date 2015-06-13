@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 public class IntroFragmentHome extends IntroFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_intro_welcome, container, false);
+        View v = inflater.inflate(R.layout.fragment_intro_home, container, false);
         return v;
     }
 }
