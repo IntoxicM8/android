@@ -1,5 +1,6 @@
 package com.jgzuke.intoxicmateandroid;
 
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -11,15 +12,16 @@ import com.github.paolorotolo.appintro.AppIntro;
 public class IntroActivity extends AppIntro {
 
     private int mCurrentFrame = 0;
-
-    private String [] mBarColors = {"#3F51B5", "#3F51B5", "#3F51B5", "#3F51B5", "#3F51B5", "#3F51B5"};
-    private String [] mSeparatorColors = {"#2196F3", "#2196F3", "#2196F3", "#2196F3", "#2196F3", "#2196F3"};
+    private TypedArray mBarColorResArray;
+    private TypedArray mSeparatorColorResArray;
 
     @Override
     public void init(Bundle savedInstanceState) {
         addSlides();
         colorSlide();
         showSkipButton(false);
+        mBarColorResArray = getResources().obtainTypedArray(R.array.intro_bar_color_array);
+        mSeparatorColorResArray = getResources().obtainTypedArray(R.array.intro_separator_color_array);
     }
 
     /**
@@ -35,8 +37,8 @@ public class IntroActivity extends AppIntro {
     }
 
     private void colorSlide() {
-        setBarColor(Color.parseColor(mBarColors[mCurrentFrame]));
-        setSeparatorColor(Color.parseColor(mSeparatorColors[mCurrentFrame]));
+        setBarColor(Color.parseColor(mBarColorResArray.getString(mCurrentFrame)));
+        setSeparatorColor(Color.parseColor(mSeparatorColorResArray.getString(mCurrentFrame)));
     }
 
     @Override
