@@ -32,8 +32,10 @@
             android:layout_height="wrap_content"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:textSize="16sp"
-            android:background="#ffffff"
+            android:background="#fefefe"
             android:text="@string/tolerance_option_1"/>
 
         <com.gc.materialdesign.views.ButtonFlat
@@ -42,8 +44,10 @@
             android:layout_height="wrap_content"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:textSize="16sp"
-            android:background="#ffffff"
+            android:background="#fefefe"
             android:text="@string/tolerance_option_2"/>
 
         <com.gc.materialdesign.views.ButtonFlat
@@ -52,8 +56,10 @@
             android:layout_height="wrap_content"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:textSize="16sp"
-            android:background="#ffffff"
+            android:background="#fefefe"
             android:text="@string/tolerance_option_3"/>
     </LinearLayout>
     <TextView
