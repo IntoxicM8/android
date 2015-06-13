@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="welcome_color">#f44336</color>
+    <color name="age_color">#e91e63</color>
+    <color name="gender_color">#9c27b0</color>
+    <color name="tolerance_color">#673ab7</color>
+    <color name="home_color">#3f51b5</color>
+    <color name="contacts_color">#2196f3</color>
+</resources>

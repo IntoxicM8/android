@@ -1,5 +1,7 @@
 package com.jgzuke.intoxicmateandroid;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,30 +12,43 @@ import com.github.paolorotolo.appintro.AppIntro;
  * Created by jgzuke on 15-06-13.
  */
 public class IntroActivity extends AppIntro {
+    private static int NUM_INTRO_SCREENS = 6;
 
+    private IntroFragment [] mIntroFragments = {new IntroFragmentWelcome(),
+                                                new IntroFragmentAge(),
+                                                new IntroFragmentGender(),
+                                                new IntroFragmentTolerance(),
+                                                new IntroFragmentHome(),
+                                                new IntroFragmentContacts()};
     private int mCurrentFrame = 0;
+
     private TypedArray mBarColorResArray;
     private TypedArray mSeparatorColorResArray;
 
     @Override
     public void init(Bundle savedInstanceState) {
+        loadColors();
         addSlides();
         colorSlide();
         showSkipButton(false);
-        mBarColorResArray = getResources().obtainTypedArray(R.array.intro_bar_color_array);
-        mSeparatorColorResArray = getResources().obtainTypedArray(R.array.intro_separator_color_array);
     }
 
     /**
      * Adds slide fragments
      */
     private void addSlides() {
-        addSlide(new IntroFragmentWelcome(), getApplicationContext());
-        addSlide(new IntroFragmentAge(), getApplicationContext());
-        addSlide(new IntroFragmentGender(), getApplicationContext());
-        addSlide(new IntroFragmentTolerance(), getApplicationContext());
-        addSlide(new IntroFragmentHome(), getApplicationContext());
-        addSlide(new IntroFragmentContacts(), getApplicationContext());
+        Context context = getApplicationContext();
+        for(int i = 0; i < NUM_INTRO_SCREENS; i++) {
+            mIntroFragments[i].setActivity(this);
+            addSlide(new IntroFragmentWelcome(), context);
+        }
+    }
+
+    private void loadColors() {
+        Resources res = getResources();
+        mBarColorResArray = res.obtainTypedArray(R.array.intro_bar_color_array);
+        mSeparatorColorResArray = res.obtainTypedArray(R.array.intro_separator_color_array);
+
     }
 
     private void colorSlide() {
@@ -47,5 +62,6 @@ public class IntroActivity extends AppIntro {
 
     @Override
     public void onDonePressed() {
+        finish();
     }
 }
