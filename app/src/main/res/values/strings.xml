@@ -9,7 +9,7 @@
     <string name="contacts">Emergency Contacts</string>
     <string name="finish">Thanks!</string>
 
-    <string name="welcome_description">Our goal is to help you stay safe, by helping you get home after a night out, and letting your friends or family know if you are in trouble.</string>
+    <string name="welcome_description">Our goal is to help you stay safe by helping you get home, and letting your friends or family know if you are in trouble.</string>
     <string name="age_description">SampleDescription</string>
     <string name="gender_description">SampleDescription</string>
     <string name="tolerance_description">SampleDescription</string>
@@ -22,4 +22,16 @@
     <string name="intro_warning_empty_tolerance">Tolerance has not been selected</string>
     <string name="intro_warning_empty_home">Home location has not been selected</string>
     <string name="intro_warning_empty_contact">Primary emergency contact has not been selected</string>
+
+    <string name="age_option_1">Less than 25</string>
+    <string name="age_option_2">25-40</string>
+    <string name="age_option_3">40-60</string>
+    <string name="age_option_4">60+</string>
+
+    <string name="gender_option_1">Male</string>
+    <string name="gender_option_2">Female</string>
+
+    <string name="tolerance_option_1">Low</string>
+    <string name="tolerance_option_2">Medium</string>
+    <string name="tolerance_option_3">High</string>
 </resources>

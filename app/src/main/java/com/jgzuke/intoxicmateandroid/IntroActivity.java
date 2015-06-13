@@ -45,8 +45,8 @@ public class IntroActivity extends AppIntro {
      */
     private void addSlides() {
         Context context = getApplicationContext();
+        IntroFragment.mIntroActivity = this;
         for(int i = 0; i < NUM_INTRO_SCREENS; i++) {
-            mIntroFragments[i].setActivity(this);
             addSlide(mIntroFragments[i], context);
         }
     }

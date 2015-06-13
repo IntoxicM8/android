@@ -26,15 +26,35 @@
         android:gravity="center"
         android:layout_weight="5">
 
-        <!--
-        <ImageView
+        <com.gc.materialdesign.views.ButtonFlat
+            android:id="@+id/tolerance1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:src="@drawable/ic_slide1"/>
-        -->
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:background="#ffffff"
+            android:text="@string/tolerance_option_1"/>
+
+        <com.gc.materialdesign.views.ButtonFlat
+            android:id="@+id/tolerance2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:background="#ffffff"
+            android:text="@string/tolerance_option_2"/>
+
+        <com.gc.materialdesign.views.ButtonFlat
+            android:id="@+id/tolerance3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:background="#ffffff"
+            android:text="@string/tolerance_option_3"/>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
