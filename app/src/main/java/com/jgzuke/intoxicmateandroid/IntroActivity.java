@@ -51,9 +51,24 @@ public class IntroActivity extends AppIntro {
 
     }
 
+    /**
+     * colors the current slide from resources array
+     */
     private void colorSlide() {
         setBarColor(Color.parseColor(mBarColorResArray.getString(mCurrentFrame)));
         setSeparatorColor(Color.parseColor(mSeparatorColorResArray.getString(mCurrentFrame)));
+
+    }
+
+    /**
+     * captures when frame has been changed
+     * @param index current frame
+     */
+    @Override
+    public void selectDot(int index) {
+        super.selectDot(index);
+        mCurrentFrame = index;
+        colorSlide();
     }
 
     @Override
