@@ -27,9 +27,7 @@ public class IntroActivity extends AppIntro {
 
     @Override
     public void init(Bundle savedInstanceState) {
-        loadColors();
         addSlides();
-        colorSlide();
         showSkipButton(false);
     }
 
@@ -44,22 +42,6 @@ public class IntroActivity extends AppIntro {
         }
     }
 
-    private void loadColors() {
-        Resources res = getResources();
-        mBarColorResArray = res.obtainTypedArray(R.array.intro_bar_color_array);
-        mSeparatorColorResArray = res.obtainTypedArray(R.array.intro_separator_color_array);
-
-    }
-
-    /**
-     * colors the current slide from resources array
-     */
-    private void colorSlide() {
-        setBarColor(Color.parseColor(mBarColorResArray.getString(mCurrentFrame)));
-        setSeparatorColor(Color.parseColor(mSeparatorColorResArray.getString(mCurrentFrame)));
-
-    }
-
     /**
      * captures when frame has been changed
      * @param index current frame
@@ -68,7 +50,6 @@ public class IntroActivity extends AppIntro {
     public void selectDot(int index) {
         super.selectDot(index);
         mCurrentFrame = index;
-        colorSlide();
     }
 
     @Override
