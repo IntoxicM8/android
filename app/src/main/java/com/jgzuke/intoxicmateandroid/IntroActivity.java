@@ -31,8 +31,11 @@ public class IntroActivity extends AppIntro {
     private String mContactTwo = null;
     private String mContactThree = null;
 
+    private Resources mResources;
+
     @Override
     public void init(Bundle savedInstanceState) {
+        mResources = getResources();
         addSlides();
         showSkipButton(false);
     }
@@ -55,25 +58,27 @@ public class IntroActivity extends AppIntro {
     @Override
     public void selectDot(int index) {
         super.selectDot(index);
-        boolean dataNotNull;
+        String warningMessage = null;
         switch (index) {
             case 2:
-                dataNotNull = mAge == null;
+                if(mAge == null) warningMessage = mResources.getString(R.string.intro_warning_empty_age);
                 break;
             case 3:
-                dataNotNull = mGender == null;
+                if(mGender == null) warningMessage = mResources.getString(R.string.intro_warning_empty_gender);
                 break;
             case 4:
-                dataNotNull = mTolerance == null;
+                if(mTolerance == null) warningMessage = mResources.getString(R.string.intro_warning_empty_tolerance);
                 break;
             case 5:
-                dataNotNull = mHome == null;
+                if(mHome == null) warningMessage = mResources.getString(R.string.intro_warning_empty_home);
                 break;
             case 6:
-                dataNotNull = mContactOne == null;
+                if(mContactOne == null) warningMessage = mResources.getString(R.string.intro_warning_empty_contact);
                 break;
         }
-        Toast.makeText(this, "test", Toast.LENGTH_SHORT);
+        if(warningMessage != null) {
+            Toast.makeText(this, warningMessage, Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void setAge(int age) {
