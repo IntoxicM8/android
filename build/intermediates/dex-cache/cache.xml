@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/jgzuke/Desktop/CODE/IntoxicMateAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/jgzuke/Desktop/CODE/IntoxicMateAndroid/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-2a7713ca2657be087c3b6abd7c8e9da6f0173ac3.jar" />
+    </item>
+    <item
+        jar="/Users/jgzuke/Desktop/CODE/IntoxicMate-Android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/jgzuke/Desktop/CODE/IntoxicMate-Android/app/build/intermediates/pre-dexed/debug/classes-aa33df2ed096c1e3687e5b86914c041070b0a293.jar" />
+    </item>
+    <item
+        jar="/Users/jgzuke/Desktop/CODE/IntoxicMateAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/jgzuke/Desktop/CODE/IntoxicMateAndroid/app/build/intermediates/pre-dexed/debug/classes-2d4786482036346c684f734b64876a1415abef30.jar" />
+    </item>
+    <item
+        jar="/Users/jgzuke/Desktop/CODE/IntoxicMate-Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/jgzuke/Desktop/CODE/IntoxicMate-Android/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-8aa7ad3acb62646758bb06b86582942ab35c271d.jar" />
+    </item>
+    <item
+        jar="/Users/jgzuke/Desktop/CODE/IntoxicMateAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/jgzuke/Desktop/CODE/IntoxicMateAndroid/app/build/intermediates/pre-dexed/debug/classes-dfe52e5c2629a42c5dc667d6bbf724e578cafdf2.jar" />
+    </item>
+    <item
+        jar="/Users/jgzuke/Desktop/adt-bundle-mac-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/jgzuke/Desktop/CODE/IntoxicMateAndroid/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-3bac7b9cdeb112aa7e699d21dadb78a1ef31dfa0.jar" />
+    </item>
+    <item
+        jar="/Users/jgzuke/Desktop/CODE/IntoxicMate-Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/jgzuke/Desktop/CODE/IntoxicMate-Android/app/build/intermediates/pre-dexed/debug/classes-6703ddb9927bfb8b4e90b16a7cf1b134aca9a397.jar" />
+    </item>
+    <item
+        jar="/Users/jgzuke/Desktop/CODE/IntoxicMateAndroid/app/build/intermediates/exploded-aar/com.github.paolorotolo/appintro/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1fe5c917f8024832c4cff06597e7cad5ba2dd35c">
+        <dex dex="/Users/jgzuke/Desktop/CODE/IntoxicMateAndroid/app/build/intermediates/pre-dexed/debug/classes-0fff9ae47a929410f7bbcd3228443e3fba3d8614.jar" />
+    </item>
+    <item
+        jar="/Users/jgzuke/Desktop/CODE/IntoxicMate-Android/app/build/intermediates/exploded-aar/com.github.paolorotolo/appintro/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1fe5c917f8024832c4cff06597e7cad5ba2dd35c">
+        <dex dex="/Users/jgzuke/Desktop/CODE/IntoxicMate-Android/app/build/intermediates/pre-dexed/debug/classes-be18955f8a89983dbe3e0d4e3adc1a0dcc78fa91.jar" />
+    </item>
+
+</items>
