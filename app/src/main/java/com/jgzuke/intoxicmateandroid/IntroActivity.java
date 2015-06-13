@@ -21,6 +21,14 @@ public class IntroActivity extends AppIntro {
                                                 new IntroFragmentHome(),
                                                 new IntroFragmentContacts()};
 
+    private Integer mAge = null;
+    private Boolean mGender = null;
+    private Integer mTolerance = null;
+    private String mHome = null;
+    private String mContactOne = null;
+    private String mContactTwo = null;
+    private String mContactThree = null;
+
     @Override
     public void init(Bundle savedInstanceState) {
         addSlides();
@@ -47,7 +55,35 @@ public class IntroActivity extends AppIntro {
         super.selectDot(index);
     }
 
+    public void setAge(int age) {
+        mAge = age;
+    }
 
+    public void setGender(boolean gender) {
+        mGender = gender;
+    }
+
+    public void setTolerance(int tolerance) {
+        mTolerance = tolerance;
+    }
+
+    public void setHome(String home) {
+        mHome = home;
+    }
+
+    public void setContact(String contact, int position) {
+        switch (position) {
+            case 0:
+                mContactOne = contact;
+                break;
+            case 1:
+                mContactTwo = contact;
+                break;
+            default:
+                mContactThree = contact;
+                break;
+        }
+    }
 
     @Override
     public void onSkipPressed() {
