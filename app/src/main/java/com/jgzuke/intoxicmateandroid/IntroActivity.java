@@ -1,10 +1,11 @@
 package com.jgzuke.intoxicmateandroid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.util.Pair;
 import android.widget.Toast;
 
 import com.github.paolorotolo.appintro.AppIntro;
@@ -13,7 +14,9 @@ import com.github.paolorotolo.appintro.AppIntro;
  * Created by jgzuke on 15-06-13.
  */
 public class IntroActivity extends AppIntro {
-    private static int NUM_INTRO_SCREENS = 7;
+    private static int NUM_INTRO_SCREENS = 8;
+
+    private static int CONTACT_PICKER_CODE = 1;
 
     private IntroFragment [] mIntroFragments = {new IntroFragmentWelcome(),
                                                 new IntroFragmentAge(),
@@ -21,15 +24,16 @@ public class IntroActivity extends AppIntro {
                                                 new IntroFragmentTolerance(),
                                                 new IntroFragmentHome(),
                                                 new IntroFragmentContacts(),
+                                                new IntroFragmentUber(),
                                                 new IntroFragmentFinish()};
 
     private Integer mAge = null;
     private Boolean mGender = null;
     private Integer mTolerance = null;
     private String mHome = null;
-    private String mContactOne = null;
-    private String mContactTwo = null;
-    private String mContactThree = null;
+    private Pair<String, String> [] mContacts = new Pair [3];
+
+    private ViewPager mPager;
 
     private Resources mResources;
 
@@ -38,6 +42,7 @@ public class IntroActivity extends AppIntro {
         mResources = getResources();
         addSlides();
         showSkipButton(false);
+        mPager = (ViewPager) findViewById(R.id.view_pager);
     }
 
     /**
@@ -73,7 +78,7 @@ public class IntroActivity extends AppIntro {
                 if(mHome == null) warningMessage = mResources.getString(R.string.intro_warning_empty_home);
                 break;
             case 6:
-                if(mContactOne == null) warningMessage = mResources.getString(R.string.intro_warning_empty_contact);
+                if(mContacts[0] == null) warningMessage = mResources.getString(R.string.intro_warning_empty_contact);
                 break;
         }
         if(warningMessage != null) {
@@ -81,34 +86,55 @@ public class IntroActivity extends AppIntro {
         }
     }
 
+    private void nextPage() {
+        mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+    }
+
     public void setAge(int age) {
         mAge = age;
+        nextPage();
     }
 
     public void setGender(boolean gender) {
         mGender = gender;
+        nextPage();
     }
 
     public void setTolerance(int tolerance) {
         mTolerance = tolerance;
+        nextPage();
     }
 
     public void setHome(String home) {
         mHome = home;
+        nextPage();
     }
 
-    public void setContact(String contact, int position) {
-        switch (position) {
-            case 0:
-                mContactOne = contact;
-                break;
-            case 1:
-                mContactTwo = contact;
-                break;
-            default:
-                mContactThree = contact;
-                break;
+    public void startContactPicker(int contactPosition) {
+        Intent intent = new Intent(this, ContactPickerActivity.class);
+        intent.putExtra("contact_position", contactPosition);
+        startActivityForResult(intent, CONTACT_PICKER_CODE);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent)
+    {
+        if(intent == null) return;
+
+        if(requestCode == CONTACT_PICKER_CODE) {
+            Bundle res = intent.getExtras();
+            int contactPosition = res.getInt("contact_position");
+            String number = res.getString("contact_number");
+            String name = res.getString("contact_name");
+            Pair contactInfo = new Pair(number, name);
+            setContact(contactInfo, contactPosition);
         }
+    }
+
+    public void setContact(Pair contact, int position) {
+        IntroFragmentContacts contactFrag = (IntroFragmentContacts)mIntroFragments[5];
+        String name = (String)contact.second;
+        contactFrag.setButtonText(name, position);
+        mContacts[position] = contact;
     }
 
     @Override

@@ -7,6 +7,7 @@
     <string name="tolerance">Tolerance</string>
     <string name="home">Home Location</string>
     <string name="contacts">Emergency Contacts</string>
+    <string name="uber">Uber sign in</string>
     <string name="finish">Thanks!</string>
 
     <string name="welcome_description">Our goal is to help you stay safe by helping you get home, and letting your friends or family know if you are in trouble.</string>
@@ -15,6 +16,7 @@
     <string name="tolerance_description">SampleDescription</string>
     <string name="home_description">SampleDescription</string>
     <string name="contacts_description">SampleDescription</string>
+    <string name="uber_description">SampleDescription</string>
     <string name="finish_description">Your information has been set, if something changes just open the app to modify your settings.</string>
 
     <string name="intro_warning_empty_age">Age has not been selected</string>
@@ -34,4 +36,8 @@
     <string name="tolerance_option_1">Low</string>
     <string name="tolerance_option_2">Medium</string>
     <string name="tolerance_option_3">High</string>
+
+    <string name="contact_option_1">Emergency Contact #1</string>
+    <string name="contact_option_2">Emergency Contact #2</string>
+    <string name="contact_option_3">Emergency Contact #3</string>
 </resources>
