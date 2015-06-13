@@ -20,10 +20,6 @@ public class IntroActivity extends AppIntro {
                                                 new IntroFragmentTolerance(),
                                                 new IntroFragmentHome(),
                                                 new IntroFragmentContacts()};
-    private int mCurrentFrame = 0;
-
-    private TypedArray mBarColorResArray;
-    private TypedArray mSeparatorColorResArray;
 
     @Override
     public void init(Bundle savedInstanceState) {
@@ -49,8 +45,9 @@ public class IntroActivity extends AppIntro {
     @Override
     public void selectDot(int index) {
         super.selectDot(index);
-        mCurrentFrame = index;
     }
+
+
 
     @Override
     public void onSkipPressed() {
