@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.github.paolorotolo.appintro.AppIntro;
 
@@ -12,14 +13,15 @@ import com.github.paolorotolo.appintro.AppIntro;
  * Created by jgzuke on 15-06-13.
  */
 public class IntroActivity extends AppIntro {
-    private static int NUM_INTRO_SCREENS = 6;
+    private static int NUM_INTRO_SCREENS = 7;
 
     private IntroFragment [] mIntroFragments = {new IntroFragmentWelcome(),
                                                 new IntroFragmentAge(),
                                                 new IntroFragmentGender(),
                                                 new IntroFragmentTolerance(),
                                                 new IntroFragmentHome(),
-                                                new IntroFragmentContacts()};
+                                                new IntroFragmentContacts(),
+                                                new IntroFragmentFinish()};
 
     private Integer mAge = null;
     private Boolean mGender = null;
@@ -53,6 +55,25 @@ public class IntroActivity extends AppIntro {
     @Override
     public void selectDot(int index) {
         super.selectDot(index);
+        boolean dataNotNull;
+        switch (index) {
+            case 2:
+                dataNotNull = mAge == null;
+                break;
+            case 3:
+                dataNotNull = mGender == null;
+                break;
+            case 4:
+                dataNotNull = mTolerance == null;
+                break;
+            case 5:
+                dataNotNull = mHome == null;
+                break;
+            case 6:
+                dataNotNull = mContactOne == null;
+                break;
+        }
+        Toast.makeText(this, "test", Toast.LENGTH_SHORT);
     }
 
     public void setAge(int age) {
@@ -91,6 +112,7 @@ public class IntroActivity extends AppIntro {
 
     @Override
     public void onDonePressed() {
+        //TODO sendDataTask
         finish();
     }
 }

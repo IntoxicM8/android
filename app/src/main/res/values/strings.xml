@@ -7,6 +7,7 @@
     <string name="tolerance">Tolerance</string>
     <string name="home">Home Location</string>
     <string name="contacts">Emergency Contacts</string>
+    <string name="finish">Thanks!</string>
 
     <string name="welcome_description">SampleDescription</string>
     <string name="age_description">SampleDescription</string>
@@ -14,4 +15,5 @@
     <string name="tolerance_description">SampleDescription</string>
     <string name="home_description">SampleDescription</string>
     <string name="contacts_description">SampleDescription</string>
+    <string name="finish_description">SampleDescription</string>
 </resources>
