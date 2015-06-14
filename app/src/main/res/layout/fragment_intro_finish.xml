@@ -32,7 +32,7 @@
             android:layout_gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:src="@drawable/ic_finish"/>
+            android:src="@drawable/ic_finish2"/>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"

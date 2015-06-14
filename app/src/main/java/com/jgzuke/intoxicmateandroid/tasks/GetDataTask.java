@@ -1,6 +1,5 @@
 package com.jgzuke.intoxicmateandroid.tasks;
 
-import android.content.Intent;
 import android.util.Log;
 
 import com.jgzuke.intoxicmateandroid.MainActivity;
@@ -20,13 +19,17 @@ import java.net.URI;
  */
 public class GetDataTask extends BaseSendInfoTask {
 
+    public static final int CALL_EMERGENCY_CONTACT = 1;
+
     private OverlayActivity mOverlayActivity;
     private MainActivity mMainActivity;
+    private int mRequestCode;
 
-    public GetDataTask(OverlayActivity overlayActivity, MainActivity mainActivity) {
+    public GetDataTask(OverlayActivity overlayActivity, MainActivity mainActivity, int requestCode) {
         mContext = overlayActivity != null? overlayActivity : mainActivity;
         mOverlayActivity = overlayActivity;
         mMainActivity = mainActivity;
+        mRequestCode = requestCode;
         postUrl = "http://ec2-52-26-100-70.us-west-2.compute.amazonaws.com:8888/users/?uuid=1337";
     }
 
@@ -48,11 +51,11 @@ public class GetDataTask extends BaseSendInfoTask {
     protected void onPostExecute(JSONObject result) {
         Log.e("myid", "onPostExecute");
         Log.e("myid", result.toString());
-        try {
-            boolean isDrunk = result == null? false: result.getBoolean("drunk");
-            //mActivity;
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if(mOverlayActivity != null) {
+            mOverlayActivity.getData(result, mRequestCode);
+        }
+        if(mMainActivity != null) {
+            mMainActivity.getData(result, mRequestCode);
         }
     }
 }
