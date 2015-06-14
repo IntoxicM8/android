@@ -105,4 +105,8 @@ public class MainActivity extends ActionBarActivity {
         }
         return json;
     }
+
+    public void getData(JSONObject result, int requestCode) {
+
+    }
 }

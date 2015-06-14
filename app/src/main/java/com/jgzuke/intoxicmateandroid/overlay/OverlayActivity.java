@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.view.ViewPager;
@@ -12,9 +13,11 @@ import android.util.Log;
 
 import com.github.paolorotolo.appintro.AppIntro;
 import com.jgzuke.intoxicmateandroid.R;
+import com.jgzuke.intoxicmateandroid.tasks.GetDataTask;
 import com.jgzuke.intoxicmateandroid.tasks.SendConfirmationTask;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by jgzuke on 15-06-14.
@@ -102,8 +105,27 @@ public class OverlayActivity extends AppIntro {
         }
     }
 
+    public void getData(JSONObject result, int requestCode) {
+        if(requestCode == GetDataTask.CALL_EMERGENCY_CONTACT) {
+            try {
+                String phone = "tel:" + result.getString("numberone").replaceAll("[^\\d.]", "");
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse(phone));
+                startActivity(intent);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else if(requestCode == GetDataTask.CALL_EMERGENCY_CONTACT) {
+            
+        }
+
+
+    }
+
     public void setAction(int action) {
         mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+
+
         if(action == 0) {
 
         } else if(action == 1) {
@@ -111,7 +133,7 @@ public class OverlayActivity extends AppIntro {
         } else if(action == 2) {
 
         } else if(action == 3) {
-
+            new GetDataTask(this, null, GetDataTask.CALL_EMERGENCY_CONTACT);
         }
     }
 }
