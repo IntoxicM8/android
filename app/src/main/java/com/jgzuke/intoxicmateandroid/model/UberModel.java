@@ -1,6 +1,6 @@
 package com.jgzuke.intoxicmateandroid.model;
 
-import com.rahul.uberapi.android.demo.Constants;
+import com.jgzuke.intoxicmateandroid.Constants;
 
 /**
  * Helper class that overrides the {@link #toString()} method to print pretty json. All models
