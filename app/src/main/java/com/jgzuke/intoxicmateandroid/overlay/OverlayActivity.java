@@ -77,9 +77,8 @@ public class OverlayActivity extends AppIntro {
         if(level < 2) {
             finish();
             Log.e("myid", "activityFinished");
-        } else {
-            mPager.setCurrentItem(mPager.getCurrentItem() + 1);
         }
+        mPager.setCurrentItem(mPager.getCurrentItem() + 1);
 
         try {
             new SendConfirmationTask(this, level, mTimestamp, mPlaceID).execute();
@@ -90,5 +89,14 @@ public class OverlayActivity extends AppIntro {
 
     public void setAction(int action) {
         mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+        if(action == 0) {
+
+        } else if(action == 1) {
+
+        } else if(action == 2) {
+
+        } else if(action == 3) {
+
+        }
     }
 }
