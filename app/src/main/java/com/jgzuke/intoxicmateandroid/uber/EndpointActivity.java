@@ -11,11 +11,8 @@ import android.widget.ListView;
 import com.jgzuke.intoxicmateandroid.R;
 import com.jgzuke.intoxicmateandroid.api.UberAPIClient;
 import com.jgzuke.intoxicmateandroid.api.UberCallback;
-import com.jgzuke.intoxicmateandroid.model.PriceEstimateList;
+import com.jgzuke.intoxicmateandroid.model.Request;
 import com.jgzuke.intoxicmateandroid.model.ProductList;
-import com.jgzuke.intoxicmateandroid.model.Profile;
-import com.jgzuke.intoxicmateandroid.model.TimeEstimateList;
-import com.jgzuke.intoxicmateandroid.model.UserActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,33 +34,33 @@ public class EndpointActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-        ProductList products;
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         int position = getIntent().getIntExtra("position", 0);
         switch (position) {
             case 1:
+
                 UberAPIClient.getUberV1APIClient().getProducts(getAccessToken(),
                         Constants.START_LATITUDE,
                         Constants.START_LONGITUDE,
                         new UberCallback<ProductList>() {
                             @Override
                             public void success(ProductList productList, Response response) {
-                                products = productList;
+
+                                UberAPIClient.getUberV1APIClient().postRequest(getAccessToken(),
+                                        productList.getProducts().get(0).getProductId(),
+                                        Constants.START_LATITUDE,
+                                        Constants.START_LONGITUDE,
+                                        Constants.END_LATITUDE,
+                                        Constants.END_LONGITUDE,
+                                        new UberCallback<Request>() {
+                                            @Override
+                                            public void success(Request request, Response response) {
+                                                setupListAdapter("request", request.toString());
+                                            }
+                                        });
                                 setupListAdapter("products", productList.toString());
-                            }
-                        });
-                UberAPIClient.getUberV1APIClient().postRequest(getAccessToken(),
-                        products[0].product_id;
-                        Constants.START_LATITUDE,
-                        Constants.START_LONGITUDE,
-                        Constants.END_LATITUDE,
-                        Constants.END_LONGITUDE,
-                        new UberCallback<Request>() {
-                            @Override
-                            public void success(Request request, Response response) {
-                                setupListAdapter("request", request.toString());
                             }
                         });
                 break;

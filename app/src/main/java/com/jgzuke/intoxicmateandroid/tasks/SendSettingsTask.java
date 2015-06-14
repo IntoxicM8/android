@@ -35,12 +35,6 @@ public class SendSettingsTask extends BaseSendInfoTask {
     }
 
     @Override
-    protected JSONArray doInBackground(Void... params) {
-        Log.e("myid", "doInBackgroundsettings");
-        return super.doInBackground();
-    }
-
-    @Override
     protected void onPostExecute(JSONArray result) {
         Log.e("myid", "onPostExecute");
         try {

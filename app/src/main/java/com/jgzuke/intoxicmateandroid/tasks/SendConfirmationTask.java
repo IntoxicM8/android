@@ -22,12 +22,6 @@ public class SendConfirmationTask extends BaseSendInfoTask {
     }
 
     @Override
-    protected JSONArray doInBackground(Void... params) {
-        Log.e("myid", "doInBackgroundConfirm");
-        return super.doInBackground();
-    }
-
-    @Override
     protected void onPostExecute(JSONArray result) {
         //TODO check data
         //mActivity.onSendSettingsTaskResult(result);

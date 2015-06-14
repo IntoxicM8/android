@@ -35,12 +35,6 @@ public class SendCurrentInfoTask extends BaseSendInfoTask {
     }
 
     @Override
-    protected JSONArray doInBackground(Void... params) {
-        Log.e("myid", "doInBackgroundInfo");
-        return super.doInBackground();
-    }
-
-    @Override
     protected void onPostExecute(JSONArray result) {
         try {
             boolean isDrunk = result == null? false: result.getBoolean(0);
