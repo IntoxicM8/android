@@ -1,9 +1,11 @@
 package com.jgzuke.intoxicmateandroid.tasks;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import com.jgzuke.intoxicmateandroid.MainActivity;
+import com.jgzuke.intoxicmateandroid.overlay.OverlayActivity;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -25,12 +27,17 @@ import java.io.InputStreamReader;
 public class SendConfirmationTask extends BaseSendInfoTask {
 
     private String mTimestamp;
+    private String mPlaceID;
+    private OverlayActivity mActivity;
 
-    public SendConfirmationTask(Context context, int howDrunk, String timestamp) throws JSONException {
-        mContext = context;
+    public SendConfirmationTask(OverlayActivity activity, int howDrunk, String timestamp, String placeID) throws JSONException {
+        mContext = activity;
+        mActivity = activity;
+        mPlaceID = placeID;
         mJSONObject = new JSONObject();
-        mJSONObject.put("drunk", howDrunk);
-        postUrl = "http://ec2-52-26-100-70.us-west-2.compute.amazonaws.com:8888/confirms/";
+        mJSONObject.put("rating", howDrunk);
+        mJSONObject.put("place_id", mPlaceID);
+        postUrl = "http://ec2-52-26-100-70.us-west-2.compute.amazonaws.com:8888/confirm/";
         mTimestamp = timestamp;
     }
 
