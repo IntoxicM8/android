@@ -23,5 +23,9 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.github.paolorotolo:appintro:1.3.0'
+<<<<<<< HEAD
     compile 'com.squareup.retrofit:retrofit:1.6.1'
+=======
+    compile 'com.github.navasmdc:MaterialDesign:1.5@aar'
+>>>>>>> f70f1f413b3b9396323917da5c0d7e1be763f3db
 }

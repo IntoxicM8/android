@@ -14,6 +14,18 @@ public class IntroFragmentGender extends IntroFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_intro_gender, container, false);
+        v.findViewById(R.id.gender1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mIntroActivity.setGender(true);
+            }
+        });
+        v.findViewById(R.id.gender2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mIntroActivity.setGender(false);
+            }
+        });
         return v;
     }
 }

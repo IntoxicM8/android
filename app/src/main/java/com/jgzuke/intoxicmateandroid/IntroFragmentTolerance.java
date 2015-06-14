@@ -14,6 +14,24 @@ public class IntroFragmentTolerance extends IntroFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_intro_tolerance, container, false);
+        v.findViewById(R.id.tolerance1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mIntroActivity.setTolerance(0);
+            }
+        });
+        v.findViewById(R.id.tolerance2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mIntroActivity.setTolerance(1);
+            }
+        });
+        v.findViewById(R.id.tolerance3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mIntroActivity.setTolerance(2);
+            }
+        });
         return v;
     }
 }
