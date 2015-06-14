@@ -14,6 +14,7 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import com.jgzuke.intoxicmateandroid.intro.IntroActivity;
+import com.jgzuke.intoxicmateandroid.overlay.OverlayActivity;
 import com.jgzuke.intoxicmateandroid.tasks.BaseSendInfoTask;
 import com.jgzuke.intoxicmateandroid.tasks.SendCurrentInfoTask;
 
@@ -48,7 +49,9 @@ public class MainActivity extends ActionBarActivity {
             @Override public void onReceive( Context context, Intent _ )
             {
                 Log.e("myid", "onReceive");
-                launchServerCheck();
+                if(OverlayActivity.windowsOpenCount < 1) {
+                    launchServerCheck();
+                }
             }
         };
         registerReceiver(receiver, new IntentFilter("com.jgzuke.intoxicmate.checkserver"));

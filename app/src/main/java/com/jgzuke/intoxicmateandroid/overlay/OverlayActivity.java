@@ -52,7 +52,7 @@ public class OverlayActivity extends AppIntro {
         Notification.Builder nb = new Notification.Builder(this)
                 .setContentTitle("IntoxicM8")
                 .setContentText("Are you okay?")
-                .setSmallIcon(R.drawable.ic_launcher);
+                .setSmallIcon(R.drawable.ic_welcome);
 
         Intent resultIntent = new Intent(this, OverlayActivity.class);
         PendingIntent pi = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
