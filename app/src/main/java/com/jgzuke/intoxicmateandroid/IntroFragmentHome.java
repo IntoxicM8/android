@@ -14,6 +14,18 @@ public class IntroFragmentHome extends IntroFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_intro_home, container, false);
+        v.findViewById(R.id.home1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mIntroActivity.startLocationPicker();
+            }
+        });
+        v.findViewById(R.id.home2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mIntroActivity.selectCurrentLocation();
+            }
+        });
         return v;
     }
 }

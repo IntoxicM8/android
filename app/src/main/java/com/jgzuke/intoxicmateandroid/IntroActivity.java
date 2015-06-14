@@ -17,6 +17,7 @@ public class IntroActivity extends AppIntro {
     private static int NUM_INTRO_SCREENS = 8;
 
     private static int CONTACT_PICKER_CODE = 1;
+    private static int LOCATION_PICKER_CODE = 2;
 
     private IntroFragment [] mIntroFragments = {new IntroFragmentWelcome(),
                                                 new IntroFragmentAge(),
@@ -116,6 +117,17 @@ public class IntroActivity extends AppIntro {
         startActivityForResult(intent, CONTACT_PICKER_CODE);
     }
 
+    public void startLocationPicker() {
+        Intent intent = new Intent(this, LocationPickerActivity.class);
+        startActivityForResult(intent, CONTACT_PICKER_CODE);
+    }
+
+    public void selectCurrentLocation() {
+        Intent intent = new Intent(this, ContactPickerActivity.class);
+        intent.putExtra("contact_position", contactPosition);
+        startActivityForResult(intent, LOCATION_PICKER_CODE);
+    }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent intent)
     {
         if(intent == null) return;
@@ -127,6 +139,8 @@ public class IntroActivity extends AppIntro {
             String name = res.getString("contact_name");
             Pair contactInfo = new Pair(number, name);
             setContact(contactInfo, contactPosition);
+        } else if(requestCode == LOCATION_PICKER_CODE) {
+
         }
     }
 

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">IntoxicMate</string>
 
+    <string name="google_maps_key">AIzaSyDYq7rnJ4DIoLIuLbHuH4bJOLf1UCaMSuk</string>
+
     <string name="welcome">Welcome to IntoxicMate</string>
     <string name="age">Age</string>
     <string name="gender">Gender</string>
@@ -32,6 +34,9 @@
 
     <string name="gender_option_1">Male</string>
     <string name="gender_option_2">Female</string>
+
+    <string name="home_option_1">Use current location</string>
+    <string name="home_option_2">Choose on map</string>
 
     <string name="tolerance_option_1">Low</string>
     <string name="tolerance_option_2">Medium</string>
