@@ -2,11 +2,8 @@ package com.jgzuke.intoxicmateandroid.tasks;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.util.Log;
 
-import com.jgzuke.intoxicmateandroid.MainActivity;
-import com.jgzuke.intoxicmateandroid.intro.IntroActivity;
 import com.jgzuke.intoxicmateandroid.overlay.OverlayActivity;
 
 import org.apache.http.HttpResponse;
@@ -31,7 +28,45 @@ public class SendCurrentInfoTask extends BaseSendInfoTask {
     public SendCurrentInfoTask(Context context, JSONObject JSONObject) {
         mContext = context;
         mJSONObject = JSONObject;
-        postUrl = "http://www.yoursite.com/script.php";
+        postUrl = "http://ec2-52-26-100-70.us-west-2.compute.amazonaws.com:8888/data/";
+    }
+
+    @Override
+    protected JSONArray doInBackground(Void... params) {
+        try {
+            Log.e("myid", "testing");
+
+            addDateAndUUIDToJSON(mJSONObject);
+
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httppost = new HttpPost(postUrl);
+
+            Log.e("myid", "testing2");
+            Log.e("myid", mJSONObject.toString());
+            Log.e("myid", "testing3");
+
+            StringEntity entity = new StringEntity(mJSONObject.toString());
+            entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+            httppost.setEntity(entity);
+
+            HttpResponse response = httpclient.execute(httppost);
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "iso-8859-1"), 8);
+            StringBuilder sb = new StringBuilder();
+            sb.append(reader.readLine() + "\n");
+            String line = "0";
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+            reader.close();
+            String result11 = sb.toString();
+
+            // parsing data
+            return new JSONArray(result11);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

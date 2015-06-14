@@ -40,7 +40,6 @@ public class EndpointActivity extends ActionBarActivity {
         int position = getIntent().getIntExtra("position", 0);
         switch (position) {
             case 1:
-
                 UberAPIClient.getUberV1APIClient().getProducts(getAccessToken(),
                         Constants.START_LATITUDE,
                         Constants.START_LONGITUDE,

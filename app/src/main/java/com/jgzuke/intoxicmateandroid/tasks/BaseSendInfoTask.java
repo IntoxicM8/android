@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Calendar;
 import java.util.Date;
@@ -31,55 +32,22 @@ public abstract class BaseSendInfoTask extends AsyncTask<Void, Void, JSONArray> 
     protected JSONObject mJSONObject;
     protected String postUrl;
     protected Context mContext;
-
-    @Override
-    protected JSONArray doInBackground(Void... params) {
-        Log.e("myid", "trythisout");
-        try {
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost(postUrl);
-
-            addDateAndUUIDToJSON(mJSONObject);
-
-            Log.e("myid", mJSONObject.toString());
-
-            StringEntity entity = new StringEntity(mJSONObject.toString());
-            entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
-            httppost.setEntity(entity);
-
-            HttpResponse response = httpclient.execute(httppost);
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "iso-8859-1"), 8);
-            StringBuilder sb = new StringBuilder();
-            sb.append(reader.readLine() + "\n");
-            String line = "0";
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-            reader.close();
-            String result11 = sb.toString();
-
-            return new JSONArray(result11);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+    protected static String mUUID;
 
     protected void addDateAndUUIDToJSON(JSONObject json) throws JSONException {
-        json.put("uuid", getUUID());
+        Log.e("myid", "addDateAndUUIDToJSON");
+        json.put("uuid", mUUID);
+        Log.e("myid", "test");
         json.put("time", getTime());
+        Log.e("myid", "getTime");
     }
 
-    protected String getUUID() {
-        TelephonyManager tManager = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
-        return tManager.getDeviceId();
+    public static void setUUID(String UUID) {
+        mUUID = UUID;
     }
 
     protected String getTime() {
         Calendar c = Calendar.getInstance();
-        Date date = c.getTime();
-        Log.e("myid", "date: " + date.toString());
         String time =   Integer.toString(c.get(Calendar.YEAR)) + "-"
                         + Integer.toString(c.get(Calendar.MONTH)) + "-"
                         + Integer.toString(c.get(Calendar.DAY_OF_MONTH)) + " "
@@ -89,5 +57,23 @@ public abstract class BaseSendInfoTask extends AsyncTask<Void, Void, JSONArray> 
 
         Log.e("myid", "time: " + time);
         return time;
+    }
+
+    protected JSONArray getJSONFromResponse(HttpResponse response) throws IOException, JSONException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "iso-8859-1"), 8);
+        StringBuilder sb = new StringBuilder();
+        sb.append(reader.readLine() + "\n");
+        String line = "0";
+        while ((line = reader.readLine()) != null) {
+            sb.append(line + "\n");
+        }
+        reader.close();
+        String result11 = sb.toString();
+
+        Log.e("myid", result11);
+
+        JSONObject jsonObject = new JSONObject(result11);
+        JSONArray jsonArray = jsonObject.getJSONArray("");
+        return jsonArray;
     }
 }

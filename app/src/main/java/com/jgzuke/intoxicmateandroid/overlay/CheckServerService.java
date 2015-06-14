@@ -26,6 +26,7 @@ public class CheckServerService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
+        Log.e("myid", "testingonStartCommand");
         try {
             new SendCurrentInfoTask(getApplicationContext(), getCurrentJSONObject()).execute();
         } catch (JSONException e) {
@@ -42,6 +43,7 @@ public class CheckServerService extends Service {
     }
 
     private void putLatLong(JSONObject json) throws JSONException {
+        Log.e("myid", "putLatLong");
         LocationManager mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Location locationGPS = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         Location locationNet = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
