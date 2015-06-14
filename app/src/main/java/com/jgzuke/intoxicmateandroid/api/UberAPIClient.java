@@ -4,14 +4,14 @@ import com.jgzuke.intoxicmateandroid.BuildConfig;
 import com.jgzuke.intoxicmateandroid.uber.Constants;
 import com.jgzuke.intoxicmateandroid.model.PriceEstimateList;
 import com.jgzuke.intoxicmateandroid.model.ProductList;
-import com.jgzuke.intoxicmateandroid.model.Profile;
 import com.jgzuke.intoxicmateandroid.model.TimeEstimateList;
-import com.jgzuke.intoxicmateandroid.model.UserActivity;
+import com.jgzuke.intoxicmateandroid.model.Request;
 
 import retrofit.Callback;
 import retrofit.Endpoint;
 import retrofit.RestAdapter;
 import retrofit.http.GET;
+import retrofit.http.POST;
 import retrofit.http.Header;
 import retrofit.http.Query;
 
@@ -102,37 +102,17 @@ public class UberAPIClient {
                                @Query("end_longitude") double endLongitude,
                                Callback<PriceEstimateList> callback);
 
-        /**
-         * The User Activity endpoint returns data about a user's lifetime activity with Uber. The
-         * response will include pickup locations and times, dropoff locations and times, the
-         * distance of past requests, and information about which products were requested.
-         * <p/>
-         * The history array in the response will have a maximum length based on the limit parameter.
-         * The response value count may exceed limit, therefore subsequent API requests may be
-         * necessary.
-         *
-         * @param authToken OAuth 2.0 bearer token with the history scope.
-         * @param offset    Offset the list of returned results by this amount. Default is zero.
-         * @param limit     Number of items to retrieve. Default is 5, maximum is 100.
-         * @param callback
-         */
-        @GET("/history")
-        void getUserActivity(@Header("Authorization") String authToken,
-                             @Query("offset") int offset,
-                             @Query("limit") int limit,
-                             Callback<UserActivity> callback);
+        //Posting code
+        @POST("/requests")
+        void postRequest(      @Header("Authorization") String authToken,
+                               @Query("product_id") String productID,
+                               @Query("start_latitude") double startLatitude,
+                               @Query("start_longitude") double startLongitude,
+                               @Query("end_latitude") double endLatitude,
+                               @Query("end_longitude") double endLongitude,
+                               Callback<Request> callback);
+        
 
-        /**
-         * The User Profile endpoint returns information about the Uber user that has authorized
-         * with the application.
-         *
-         * @param authToken OAuth 2.0 bearer token with the profile scope.
-         * @param callback
-         */
-        @GET("/me")
-        void getProfile(@Header("Authorization") String authToken,
-                        Callback<Profile> callback);
-    }
 
     private static class UberEndPoint implements Endpoint {
 
