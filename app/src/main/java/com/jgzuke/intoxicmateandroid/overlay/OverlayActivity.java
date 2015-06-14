@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 
@@ -38,6 +39,8 @@ public class OverlayActivity extends AppIntro {
         addSlides();
         showSkipButton(false);
         mPager = (ViewPager) findViewById(R.id.view_pager);
+        Vibrator mVibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+        mVibrator.vibrate(500);
         Intent i = new Intent();
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Notification.Builder nb = new Notification.Builder(this)
