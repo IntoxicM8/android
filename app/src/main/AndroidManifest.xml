@@ -32,6 +32,10 @@
             android:name=".ContactPickerActivity"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name=".LocationPickerActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

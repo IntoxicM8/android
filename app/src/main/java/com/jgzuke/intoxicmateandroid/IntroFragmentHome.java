@@ -17,13 +17,13 @@ public class IntroFragmentHome extends IntroFragment {
         v.findViewById(R.id.home1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mIntroActivity.startLocationPicker();
+                mIntroActivity.selectCurrentLocation();
             }
         });
         v.findViewById(R.id.home2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mIntroActivity.selectCurrentLocation();
+                mIntroActivity.startLocationPicker();
             }
         });
         return v;
