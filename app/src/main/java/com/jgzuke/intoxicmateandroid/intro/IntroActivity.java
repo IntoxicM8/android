@@ -3,9 +3,12 @@ package com.jgzuke.intoxicmateandroid.intro;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.util.Pair;
@@ -142,9 +145,11 @@ public class IntroActivity extends AppIntro {
         nextPage();
     }
 
+    private int mContactPosition = 0;
+
     public void startContactPicker(int contactPosition) {
-        Intent intent = new Intent(this, ContactPickerActivity.class);
-        intent.putExtra("contact_position", contactPosition);
+        mContactPosition = contactPosition;
+        Intent intent= new Intent(Intent.ACTION_PICK,  ContactsContract.Contacts.CONTENT_URI);
         startActivityForResult(intent, CONTACT_PICKER_CODE);
     }
 
@@ -154,8 +159,6 @@ public class IntroActivity extends AppIntro {
     }
 
     public void selectCurrentLocation() {
-        double mapLat;
-        double mapLong;
         Pair<Double, Double> mapCoords = null;
 
         LocationManager mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -186,12 +189,17 @@ public class IntroActivity extends AppIntro {
         if(intent == null) return;
 
         if(requestCode == CONTACT_PICKER_CODE) {
-            Bundle res = intent.getExtras();
-            int contactPosition = res.getInt("contact_position");
-            String number = res.getString("contact_number");
-            String name = res.getString("contact_name");
-            Pair contactInfo = new Pair(number, name);
-            setContact(contactInfo, contactPosition);
+            Uri contactData = intent.getData();
+            Cursor c =  managedQuery(contactData, null, null, null, null);
+            if (c.moveToFirst()) {
+                String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                String number = c.getString(c.getColumnIndex(ContactsContract.Contacts.PHONETIC_NAME));
+                // TODO Fetch other Contact details as you want to use
+                Pair contactInfo = new Pair(number, name);
+                setContact(contactInfo, mContactPosition);
+            }
+
+
         } else if(requestCode == LOCATION_PICKER_CODE) {
             Bundle res = intent.getExtras();
             double mapLat = res.getDouble("map_lat");

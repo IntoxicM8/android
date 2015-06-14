@@ -51,9 +51,20 @@
       <file leaf-file-name="IntroActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/intro/IntroActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.01793722">
-              <caret line="233" column="27" selection-start-line="233" selection-start-column="18" selection-end-line="233" selection-end-column="27" />
-              <folding />
+            <state vertical-scroll-proportion="0.34751773">
+              <caret line="152" column="60" selection-start-line="152" selection-start-column="60" selection-end-line="152" selection-end-column="60" />
+              <folding>
+                <element signature="e#7517#7518#0" expanded="true" />
+                <element signature="e#7555#7556#0" expanded="true" />
+                <element signature="e#8727#8759#0" expanded="true" />
+                <element signature="e#8820#8855#0" expanded="true" />
+                <element signature="e#8919#8957#0" expanded="true" />
+                <element signature="e#9016#9049#0" expanded="true" />
+                <element signature="e#9110#9143#0" expanded="true" />
+                <element signature="e#9209#9245#0" expanded="true" />
+                <element signature="e#9606#9656#0" expanded="true" />
+                <element signature="e#9986#10036#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1692,7 +1703,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/overlay/WarningFragmentFinish.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/overlay/WarningFragmentOpen.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/overlay/WarningFragmentAction.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/intro/IntroActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/tasks/SendConfirmationTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/tasks/getDataTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/tasks/GetDataTask.java" />
@@ -1716,6 +1726,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/uber/EndpointActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/uber/UberActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/overlay/OverlayActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/intro/IntroActivity.java" />
       </list>
     </option>
   </component>
@@ -1983,7 +1994,7 @@
     <property name="FullScreen" value="true" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../textnow-android" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="F5AZFG13C910" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="9851337e" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_22_x86" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
@@ -2188,7 +2199,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286119" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.49676898" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2198,7 +2209,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.4951535" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5609065" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5609065" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2586,9 +2597,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/intro/IntroActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.01793722">
-          <caret line="233" column="27" selection-start-line="233" selection-start-column="18" selection-end-line="233" selection-end-column="27" />
-          <folding />
+        <state vertical-scroll-proportion="0.34751773">
+          <caret line="152" column="60" selection-start-line="152" selection-start-column="60" selection-end-line="152" selection-end-column="60" />
+          <folding>
+            <element signature="e#7517#7518#0" expanded="true" />
+            <element signature="e#7555#7556#0" expanded="true" />
+            <element signature="e#8727#8759#0" expanded="true" />
+            <element signature="e#8820#8855#0" expanded="true" />
+            <element signature="e#8919#8957#0" expanded="true" />
+            <element signature="e#9016#9049#0" expanded="true" />
+            <element signature="e#9110#9143#0" expanded="true" />
+            <element signature="e#9209#9245#0" expanded="true" />
+            <element signature="e#9606#9656#0" expanded="true" />
+            <element signature="e#9986#10036#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
