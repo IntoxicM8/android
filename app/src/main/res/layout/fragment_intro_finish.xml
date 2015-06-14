@@ -16,7 +16,7 @@
         android:fontFamily="sans-serif-thin"
         android:textColor="#ffffff"
         android:paddingRight="32dp"
-        android:textSize="28sp"
+        android:textSize="34sp"
         android:text="@string/finish"/>
 
     <LinearLayout

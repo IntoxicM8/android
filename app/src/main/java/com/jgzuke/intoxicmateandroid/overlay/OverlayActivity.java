@@ -2,6 +2,7 @@ package com.jgzuke.intoxicmateandroid.overlay;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -50,6 +51,11 @@ public class OverlayActivity extends AppIntro {
                 .setContentTitle("IntoxicM8")
                 .setContentText("Are you okay?")
                 .setSmallIcon(R.drawable.ic_launcher);
+
+        Intent resultIntent = new Intent(this, OverlayActivity.class);
+        PendingIntent pi = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        nb.setContentIntent(pi);
+
         Notification n = nb.build();
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         nm.notify(1, n);
@@ -94,7 +100,6 @@ public class OverlayActivity extends AppIntro {
     public void setWarningLevel(int level) {
         if(level < 2) {
             finish();
-            Log.e("myid", "activityFinished");
         }
         mPager.setCurrentItem(mPager.getCurrentItem() + 1);
 
@@ -123,9 +128,6 @@ public class OverlayActivity extends AppIntro {
     }
 
     public void setAction(int action) {
-        mPager.setCurrentItem(mPager.getCurrentItem() + 1);
-
-
         if(action == 0) {
 
         } else if(action == 1) {
