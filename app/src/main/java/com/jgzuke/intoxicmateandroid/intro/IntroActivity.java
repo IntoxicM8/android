@@ -125,11 +125,11 @@ public class IntroActivity extends AppIntro {
 
     public void startLocationPicker() {
         Intent intent = new Intent(this, LocationPickerActivity.class);
-        startActivityForResult(intent, CONTACT_PICKER_CODE);
+        startActivityForResult(intent, LOCATION_PICKER_CODE);
     }
 
     public void selectCurrentLocation() {
-        String mapLocation = null;
+        String mapLocation;
 
         LocationManager mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Location locationGPS = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -146,8 +146,7 @@ public class IntroActivity extends AppIntro {
 
         if ( 0 < GPSLocationTime - NetLocationTime ) {
             mapLocation = locationGPS.toString();
-        }
-        else {
+        } else {
             mapLocation = locationNet.toString();
         }
         if(mapLocation == null) return;

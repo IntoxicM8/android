@@ -1,6 +1,8 @@
 package com.jgzuke.intoxicmateandroid;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
@@ -48,9 +50,22 @@ public class LocationPickerActivity extends FragmentActivity {
                 @Override
                 public void onMapClick(LatLng latLng) {
                     mLocation = latLng.toString();
+                    makeSetLocationDialog();
                 }
             });
         }
+    }
+
+    private void makeSetLocationDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Use this location?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        locationSelected();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     private void zoomToLocation() {

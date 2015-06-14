@@ -46,6 +46,9 @@
     <string name="contact_option_2">Emergency Contact #2</string>
     <string name="contact_option_3">Emergency Contact #3</string>
 
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+
     <string name="demo_list_header_text">\nCongratulations! you have successfully authenticated and your token is: %s\n\nTest the following functions of the api!\n</string>
     <string name="products">Products!</string>
     <string name="time_estimates">Time Estimates!</string>
