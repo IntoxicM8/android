@@ -143,10 +143,8 @@ public class OverlayActivity extends AppIntro {
 
     public void setAction(int action) {
         if(action == 0) {
-
+            mPager.setCurrentItem(mPager.getCurrentItem() + 1);
             Toast.makeText(getApplicationContext(), "An Uber is coming to save you", Toast.LENGTH_LONG).show();
-
-
         } else if(action == 1) {
 
         } else if(action == 2) {
