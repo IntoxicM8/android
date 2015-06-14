@@ -15,6 +15,7 @@ import com.github.paolorotolo.appintro.AppIntro;
 import com.jgzuke.intoxicmateandroid.ContactPickerActivity;
 import com.jgzuke.intoxicmateandroid.LocationPickerActivity;
 import com.jgzuke.intoxicmateandroid.R;
+import com.jgzuke.intoxicmateandroid.tasks.SendSettingsTask;
 import com.jgzuke.intoxicmateandroid.uber.UberActivity;
 
 import org.json.JSONArray;
@@ -215,18 +216,18 @@ public class IntroActivity extends AppIntro {
 
         JSONObject json = new JSONObject();
         json.put("age", mAge.toString());
-        json.put("gender", mGender.toString());
+        json.put("gender", mGender? "male" : "female");
         json.put("tolerance", mTolerance.toString());
         json.put("travel", mTravel.toString());
         json.put("homelat", mHome.first.toString());
         json.put("homelong", mHome.second.toString());
 
-        json.put("nameone", mContacts[0].first);
-        json.put("numberone", mContacts[0].second);
-        json.put("nametwo", mContacts[1].first);
-        json.put("numbertwo", mContacts[1].second);
-        json.put("namethree", mContacts[2].first);
-        json.put("numberthree", mContacts[2].second);
+        json.put("nameone", mContacts[0].second);
+        json.put("numberone", mContacts[0].first);
+        json.put("nametwo", mContacts[1].second);
+        json.put("numbertwo", mContacts[1].first);
+        json.put("namethree", mContacts[2].second);
+        json.put("numberthree", mContacts[2].first);
 
         Log.e("myid", json.toString());
         return json;
