@@ -12,7 +12,7 @@ import com.jgzuke.intoxicmateandroid.overlay.CheckServerService;
 
 
 public class MainActivity extends ActionBarActivity {
-    private static final long ALARM_PERIOD = 1800000L;
+    private static final long ALARM_PERIOD = 3000; //1800000L;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

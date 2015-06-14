@@ -41,7 +41,6 @@ public class UberActivity extends ActionBarActivity {
         webView.setWebViewClient(new UberWebViewClient());
 
         String url = buildUrl();
-        Log.e("myid", url);
         webView.loadUrl(buildUrl());
     }
 

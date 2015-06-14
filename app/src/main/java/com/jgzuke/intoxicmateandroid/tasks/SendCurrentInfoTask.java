@@ -3,6 +3,7 @@ package com.jgzuke.intoxicmateandroid.tasks;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.jgzuke.intoxicmateandroid.MainActivity;
 import com.jgzuke.intoxicmateandroid.intro.IntroActivity;
@@ -30,7 +31,13 @@ public class SendCurrentInfoTask extends BaseSendInfoTask {
     public SendCurrentInfoTask(Context context, JSONObject JSONObject) {
         mContext = context;
         mJSONObject = JSONObject;
-        postUrl = "";
+        postUrl = "http://www.yoursite.com/script.php";
+    }
+
+    @Override
+    protected JSONArray doInBackground(Void... params) {
+        Log.e("myid", "doInBackgroundInfo");
+        return super.doInBackground();
     }
 
     @Override

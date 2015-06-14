@@ -34,11 +34,14 @@ public abstract class BaseSendInfoTask extends AsyncTask<Void, Void, JSONArray> 
 
     @Override
     protected JSONArray doInBackground(Void... params) {
+        Log.e("myid", "trythisout");
         try {
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httppost = new HttpPost(postUrl);
 
             addDateAndUUIDToJSON(mJSONObject);
+
+            Log.e("myid", mJSONObject.toString());
 
             StringEntity entity = new StringEntity(mJSONObject.toString());
             entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
@@ -68,12 +71,12 @@ public abstract class BaseSendInfoTask extends AsyncTask<Void, Void, JSONArray> 
         json.put("time", getTime());
     }
 
-    private String getUUID() {
+    protected String getUUID() {
         TelephonyManager tManager = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
         return tManager.getDeviceId();
     }
 
-    private String getTime() {
+    protected String getTime() {
         Calendar c = Calendar.getInstance();
         Date date = c.getTime();
         Log.e("myid", "date: " + date.toString());

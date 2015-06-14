@@ -1,6 +1,7 @@
 package com.jgzuke.intoxicmateandroid.tasks;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.jgzuke.intoxicmateandroid.MainActivity;
 
@@ -17,7 +18,13 @@ public class SendConfirmationTask extends BaseSendInfoTask {
         mContext = context;
         mJSONObject = new JSONObject();
         mJSONObject.put("drunk", isDrunk.toString());
-        postUrl = "";
+        postUrl = "http://www.yoursite.com/script.php";
+    }
+
+    @Override
+    protected JSONArray doInBackground(Void... params) {
+        Log.e("myid", "doInBackgroundConfirm");
+        return super.doInBackground();
     }
 
     @Override

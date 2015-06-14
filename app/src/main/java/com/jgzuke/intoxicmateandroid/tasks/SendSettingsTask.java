@@ -1,6 +1,7 @@
 package com.jgzuke.intoxicmateandroid.tasks;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.jgzuke.intoxicmateandroid.intro.IntroActivity;
 
@@ -12,6 +13,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -28,11 +30,23 @@ public class SendSettingsTask extends BaseSendInfoTask {
         mJSONObject = JSONObject;
         mActivity = activity;
         mContext = activity;
-        postUrl = "";
+        postUrl = "http://www.yoursite.com/script.php";
+        Log.e("myid", "IntroActivity");
+    }
+
+    @Override
+    protected JSONArray doInBackground(Void... params) {
+        Log.e("myid", "doInBackgroundsettings");
+        return super.doInBackground();
     }
 
     @Override
     protected void onPostExecute(JSONArray result) {
-
+        Log.e("myid", "onPostExecute");
+        try {
+            mActivity.onSendSettingsTaskResult(result);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

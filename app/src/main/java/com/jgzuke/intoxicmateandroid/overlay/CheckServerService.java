@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.IBinder;
+import android.util.Log;
 import android.util.Pair;
 
 import com.jgzuke.intoxicmateandroid.tasks.SendCurrentInfoTask;
@@ -66,6 +67,6 @@ public class CheckServerService extends Service {
     }
 
     private void putHeartrate(JSONObject json) throws JSONException {
-        //json.put("lat", Double.toString(locationGPS.getLatitude()));
+        json.put("heartrate", "80");
     }
 }

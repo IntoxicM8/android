@@ -44,6 +44,7 @@ public class IntroActivity extends AppIntro {
     private Boolean mGender = null;
     private Integer mTolerance = null;
     private Integer mTravel = null;
+    private Integer mHeartRate = 80;
     private Pair<Double, Double> mHome = null;
     private Pair<String, String> [] mContacts = new Pair [3];
 
@@ -206,6 +207,10 @@ public class IntroActivity extends AppIntro {
         mContacts[position] = contact;
     }
 
+    public void setHeartrate(int heartrate) {
+        mHeartRate = heartrate;
+    }
+
     private JSONObject getJSON() throws JSONException {
         if(mContacts[1] == null) {
             mContacts[1] = new Pair("empty", "empty");
@@ -229,7 +234,7 @@ public class IntroActivity extends AppIntro {
         json.put("namethree", mContacts[2].second);
         json.put("numberthree", mContacts[2].first);
 
-        Log.e("myid", json.toString());
+        json.put("heartrate", mHeartRate.toString());
         return json;
     }
 
@@ -259,6 +264,7 @@ public class IntroActivity extends AppIntro {
             Toast.makeText(this, mResources.getString(errorID), Toast.LENGTH_SHORT).show();
         } else {
             try {
+                Log.e("myid", "SendSettingsTask");
                 new SendSettingsTask(this, getJSON()).execute();
             } catch (JSONException e) {
                 Toast.makeText(this, mResources.getString(R.string.send_settings_error), Toast.LENGTH_SHORT).show();
