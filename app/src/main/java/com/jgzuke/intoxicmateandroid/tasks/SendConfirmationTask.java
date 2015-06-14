@@ -24,26 +24,26 @@ import java.io.InputStreamReader;
  */
 public class SendConfirmationTask extends BaseSendInfoTask {
 
-    public SendConfirmationTask(Context context, Boolean isDrunk) throws JSONException {
+    private String mTimestamp;
+
+    public SendConfirmationTask(Context context, int howDrunk, String timestamp) throws JSONException {
         mContext = context;
         mJSONObject = new JSONObject();
-        mJSONObject.put("drunk", isDrunk.toString());
+        mJSONObject.put("drunk", howDrunk);
         postUrl = "http://ec2-52-26-100-70.us-west-2.compute.amazonaws.com:8888/confirms/";
+        mTimestamp = timestamp;
     }
 
     @Override
     protected JSONObject doInBackground(Void... params) {
         try {
-            Log.e("myid", "testing");
-
-            addDateAndUUIDToJSON(mJSONObject);
+            mJSONObject.put("uuid", mUUID);
+            mJSONObject.put("timestamp", mTimestamp);
 
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httppost = new HttpPost(postUrl);
 
-            Log.e("myid", "testing2");
             Log.e("myid", mJSONObject.toString());
-            Log.e("myid", "testing3");
 
             StringEntity entity = new StringEntity(mJSONObject.toString());
             entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
@@ -55,11 +55,5 @@ public class SendConfirmationTask extends BaseSendInfoTask {
             e.printStackTrace();
             return null;
         }
-    }
-
-    @Override
-    protected void onPostExecute(JSONObject result) {
-        //TODO check data
-        //mActivity.onSendSettingsTaskResult(result);
     }
 }

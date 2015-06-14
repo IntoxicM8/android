@@ -22,6 +22,8 @@ import org.json.JSONObject;
  */
 public class SendCurrentInfoTask extends BaseSendInfoTask {
 
+    private String mTimeStamp;
+
     public SendCurrentInfoTask(Context context, JSONObject JSONObject) {
         mContext = context;
         mJSONObject = JSONObject;
@@ -32,6 +34,7 @@ public class SendCurrentInfoTask extends BaseSendInfoTask {
     protected JSONObject doInBackground(Void... params) {
         try {
             addDateAndUUIDToJSON(mJSONObject);
+            mTimeStamp = mJSONObject.getString("timestamp");
 
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httppost = new HttpPost(postUrl);
@@ -60,6 +63,7 @@ public class SendCurrentInfoTask extends BaseSendInfoTask {
                 Intent intent = new Intent(mContext, OverlayActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
+                OverlayActivity.setTimestamp(mTimeStamp);
             }
         } catch (JSONException e) {
             e.printStackTrace();

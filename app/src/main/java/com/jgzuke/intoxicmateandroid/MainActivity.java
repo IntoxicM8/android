@@ -22,7 +22,7 @@ import org.json.JSONObject;
 
 
 public class MainActivity extends ActionBarActivity {
-    private static final long ALARM_PERIOD = 100000L; //1800000L;
+    private static final long ALARM_PERIOD = 50000L; //1800000L;
     private static final int INTRO_REQUEST_CODE = 1;
 
     @Override

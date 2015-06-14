@@ -211,6 +211,8 @@ public class IntroActivity extends AppIntro {
         mHeartRate = heartrate;
     }
 
+    private static final int [] ages = {20, 32, 50, 70};
+
     private JSONObject getJSON() throws JSONException {
         if(mContacts[1] == null) {
             mContacts[1] = new Pair("empty", "empty");
@@ -220,7 +222,7 @@ public class IntroActivity extends AppIntro {
         }
 
         JSONObject json = new JSONObject();
-        json.put("age", mAge);
+        json.put("age", ages[mAge]);
         json.put("gender", mGender? "male" : "female");
         json.put("tolerance", mTolerance);
         json.put("travel", mTravel);

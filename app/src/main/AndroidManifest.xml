@@ -47,6 +47,12 @@
         </activity>
 
         <activity
+            android:name=".overlay.OverlayActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
             android:name=".intro.IntroActivity"
             android:screenOrientation="portrait"
             android:label="@string/app_name" >
