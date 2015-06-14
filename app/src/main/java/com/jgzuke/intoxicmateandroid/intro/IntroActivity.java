@@ -7,6 +7,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.util.Pair;
 import android.widget.Toast;
 
@@ -14,6 +15,11 @@ import com.github.paolorotolo.appintro.AppIntro;
 import com.jgzuke.intoxicmateandroid.ContactPickerActivity;
 import com.jgzuke.intoxicmateandroid.LocationPickerActivity;
 import com.jgzuke.intoxicmateandroid.R;
+import com.jgzuke.intoxicmateandroid.uber.UberActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by jgzuke on 15-06-13.
@@ -29,13 +35,14 @@ public class IntroActivity extends AppIntro {
                                                 new IntroFragmentGender(),
                                                 new IntroFragmentTolerance(),
                                                 new IntroFragmentHome(),
-                                                new IntroFragmentContacts(),
                                                 new IntroFragmentUber(),
+                                                new IntroFragmentContacts(),
                                                 new IntroFragmentFinish()};
 
     private Integer mAge = null;
     private Boolean mGender = null;
     private Integer mTolerance = null;
+    private Integer mTravel = null;
     private String mHome = null;
     private Pair<String, String> [] mContacts = new Pair [3];
 
@@ -84,6 +91,9 @@ public class IntroActivity extends AppIntro {
                 if(mHome == null) warningMessage = mResources.getString(R.string.intro_warning_empty_home);
                 break;
             case 6:
+                if(mTravel == null) warningMessage = mResources.getString(R.string.intro_warning_empty_uber);
+                break;
+            case 7:
                 if(mContacts[0] == null) warningMessage = mResources.getString(R.string.intro_warning_empty_contact);
                 break;
         }
@@ -109,6 +119,20 @@ public class IntroActivity extends AppIntro {
     public void setTolerance(int tolerance) {
         mTolerance = tolerance;
         nextPage();
+    }
+
+    public void setTravel(int travel) {
+        mTravel = travel;
+        if(mTravel == 0) {
+            startUberSignIn();
+        } else {
+            nextPage();
+        }
+    }
+
+    public void startUberSignIn() {
+        Intent intent = new Intent(this, UberActivity.class);
+        startActivity(intent);
     }
 
     public void setHome(String home) {
@@ -173,10 +197,29 @@ public class IntroActivity extends AppIntro {
     }
 
     public void setContact(Pair contact, int position) {
-        IntroFragmentContacts contactFrag = (IntroFragmentContacts)mIntroFragments[5];
+        IntroFragmentContacts contactFrag = (IntroFragmentContacts)mIntroFragments[6];
         String name = (String)contact.second;
         contactFrag.setButtonText(name, position);
         mContacts[position] = contact;
+    }
+
+    private JSONObject getJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put("age", mAge.toString());
+        json.put("gender", mGender.toString());
+        json.put("tolerance", mTolerance.toString());
+        json.put("travel", mTravel.toString());
+        json.put("home", mHome);
+
+        json.put("nameone", mContacts[0].first);
+        json.put("numberone", mContacts[0].second);
+        json.put("nametwo", mContacts[1].first);
+        json.put("numbertwo", mContacts[1].second);
+        json.put("namethree", mContacts[2].first);
+        json.put("numberthree", mContacts[2].second);
+
+        Log.e("myid", json.toString());
+        return json;
     }
 
     @Override
@@ -185,7 +228,38 @@ public class IntroActivity extends AppIntro {
 
     @Override
     public void onDonePressed() {
-        //TODO sendDataTask
-        finish();
+        int errorID = -1;
+
+        if(mAge == null) {
+            errorID = R.string.intro_warning_empty_age;
+        } else if(mGender == null) {
+            errorID = R.string.intro_warning_empty_gender;
+        } else if(mTolerance == null) {
+            errorID = R.string.intro_warning_empty_tolerance;
+        } else if(mHome == null) {
+            errorID = R.string.intro_warning_empty_home;
+        } else if(mTravel == null) {
+            errorID = R.string.intro_warning_empty_uber;
+        } else if(mContacts[0] == null) {
+            errorID = R.string.intro_warning_empty_contact;
+        }
+
+        if(errorID != -1) {
+            Toast.makeText(this, mResources.getString(errorID), Toast.LENGTH_SHORT).show();
+        } else {
+            try {
+                new SendSettingsTask(this, getJSON()).execute();
+            } catch (JSONException e) {
+                Toast.makeText(this, mResources.getString(R.string.send_settings_error), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public void onSendSettingsTaskResult(JSONArray result) {
+        if (result != null) {
+            finish();
+        } else {
+            Toast.makeText(this, mResources.getString(R.string.send_settings_error), Toast.LENGTH_SHORT).show();
+        }
     }
 }

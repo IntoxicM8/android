@@ -3,6 +3,7 @@ package com.jgzuke.intoxicmateandroid.uber;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Window;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -39,6 +40,9 @@ public class UberActivity extends ActionBarActivity {
 
         webView.setWebViewClient(new UberWebViewClient());
 
+        String url = buildUrl();
+        Toast.makeText(this, url, Toast.LENGTH_SHORT).show();
+        Log.e("myid", url);
         webView.loadUrl(buildUrl());
     }
 
@@ -66,24 +70,32 @@ public class UberActivity extends ActionBarActivity {
         }
 
         private boolean checkRedirect(String url) {
-            if (url.startsWith(Constants.getUberRedirectUrl(UberActivity.this))) {
-                Uri uri = Uri.parse(url);
-                UberAuthTokenClient.getUberAuthTokenClient().getAuthToken(
-                        Constants.getUberClientSecret(UberActivity.this),
-                        Constants.getUberClientId(UberActivity.this),
-                        "authorization_code",
-                        uri.getQueryParameter("code"),
-                        Constants.getUberRedirectUrl(UberActivity.this),
-                        new UberCallback<User>() {
-                            @Override
-                            public void success(User user, Response response) {
-                                DemoActivity.start(UberActivity.this, user.getAccessToken(), user.getTokenType());
-                                finish();
-                            }
-                        });
-                return true;
+            if(url == null) {
+                return false;
             }
-            return false;
+            String redirect = Constants.getUberRedirectUrl(UberActivity.this);
+            if(redirect == null) {
+                return false;
+            }
+            if(!url.startsWith(redirect)) {
+                return false;
+            }
+
+            Uri uri = Uri.parse(url);
+            UberAuthTokenClient.getUberAuthTokenClient().getAuthToken(
+                    Constants.getUberClientSecret(UberActivity.this),
+                    Constants.getUberClientId(UberActivity.this),
+                    "authorization_code",
+                    uri.getQueryParameter("code"),
+                    Constants.getUberRedirectUrl(UberActivity.this),
+                    new UberCallback<User>() {
+                        @Override
+                        public void success(User user, Response response) {
+                            DemoActivity.start(UberActivity.this, user.getAccessToken(), user.getTokenType());
+                            finish();
+                        }
+                    });
+            return true;
         }
     }
 }

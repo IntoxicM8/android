@@ -26,10 +26,41 @@
         android:gravity="center"
         android:layout_weight="5">
 
+        <com.gc.materialdesign.views.ButtonFlat
+            android:id="@+id/travel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textSize="16sp"
+            android:background="#fefefe"
+            android:text="@string/travel_option_1"/>
 
-        <!-- put your stuff here -->
+        <com.gc.materialdesign.views.ButtonFlat
+            android:id="@+id/travel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textSize="16sp"
+            android:background="#fefefe"
+            android:text="@string/travel_option_2"/>
 
-
+        <com.gc.materialdesign.views.ButtonFlat
+            android:id="@+id/travel3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textSize="16sp"
+            android:background="#fefefe"
+            android:text="@string/travel_option_3"/>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"

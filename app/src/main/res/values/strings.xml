@@ -9,7 +9,7 @@
     <string name="tolerance">Tolerance</string>
     <string name="home">Home Location</string>
     <string name="contacts">Emergency Contacts</string>
-    <string name="uber">Uber sign in</string>
+    <string name="uber">Getting Home</string>
     <string name="finish">Thanks!</string>
 
     <string name="welcome_description">Our goal is to help you stay safe by helping you get home, and letting your friends or family know if you are in trouble.</string>
@@ -26,6 +26,7 @@
     <string name="intro_warning_empty_tolerance">Tolerance has not been selected</string>
     <string name="intro_warning_empty_home">Home location has not been selected</string>
     <string name="intro_warning_empty_contact">Primary emergency contact has not been selected</string>
+    <string name="intro_warning_empty_uber">Travel options have not been selected</string>
 
     <string name="age_option_1">Less than 25</string>
     <string name="age_option_2">25-40</string>
@@ -46,8 +47,14 @@
     <string name="contact_option_2">Emergency Contact #2</string>
     <string name="contact_option_3">Emergency Contact #3</string>
 
+    <string name="travel_option_1">Ride with Uber</string>
+    <string name="travel_option_2">Transit directions</string>
+    <string name="travel_option_3">Call a friend</string>
+
     <string name="yes">Yes</string>
     <string name="cancel">Cancel</string>
+
+    <string name="send_settings_error">An error occurred, please try again</string>
 
     <string name="demo_list_header_text">\nCongratulations! you have successfully authenticated and your token is: %s\n\nTest the following functions of the api!\n</string>
     <string name="products">Products!</string>
