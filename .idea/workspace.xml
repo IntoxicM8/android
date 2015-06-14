@@ -29,21 +29,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="OverlayActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OverlayActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/overlay/OverlayActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25531915">
-              <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="104" column="28" selection-start-line="104" selection-start-column="12" selection-end-line="104" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2194#2195#0" expanded="true" />
-                <element signature="e#2232#2233#0" expanded="true" />
-                <element signature="e#2285#2286#0" expanded="true" />
-                <element signature="e#2319#2320#0" expanded="true" />
-                <element signature="e#2419#2420#0" expanded="true" />
-                <element signature="e#2443#2444#0" expanded="true" />
-                <element signature="e#2889#2890#0" expanded="true" />
-                <element signature="e#2927#2928#0" expanded="true" />
+                <element signature="e#2243#2244#0" expanded="true" />
+                <element signature="e#2281#2282#0" expanded="true" />
+                <element signature="e#2334#2335#0" expanded="true" />
+                <element signature="e#2368#2369#0" expanded="true" />
+                <element signature="e#2967#2968#0" expanded="true" />
+                <element signature="e#3005#3006#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SendCurrentInfoTask.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/tasks/SendCurrentInfoTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4787234">
+              <caret line="71" column="57" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1610,7 +1620,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/overlay/WarningFragmentOpen.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/overlay/WarningFragmentAction.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/intro/IntroActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/tasks/SendCurrentInfoTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/tasks/SendConfirmationTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/tasks/getDataTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/tasks/GetDataTask.java" />
@@ -1622,7 +1631,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_intro_finish.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_intro_welcome.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/overlay/OverlayActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_intro_gender.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_intro_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_intro_tolerance.xml" />
@@ -1630,6 +1638,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_warning_finish.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_warning_actions.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_warning_open.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/overlay/OverlayActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/tasks/SendCurrentInfoTask.java" />
       </list>
     </option>
   </component>
@@ -1703,24 +1713,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IntoxicMate-Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2339,16 +2331,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/tasks/SendCurrentInfoTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="73" selection-start-line="66" selection-start-column="73" selection-end-line="66" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_intro_finish.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2368,7 +2350,7 @@
         <state vertical-scroll-proportion="-7.6896553">
           <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
           <folding>
-            <element signature="e#735#751#0" expanded="true" />
+            <element signature="e#735#751#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2447,25 +2429,33 @@
         <state vertical-scroll-proportion="0.35573122">
           <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
           <folding>
-            <element signature="e#1473#1496#0" expanded="true" />
+            <element signature="e#1473#1496#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/overlay/OverlayActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25531915">
-          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="104" column="28" selection-start-line="104" selection-start-column="12" selection-end-line="104" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2194#2195#0" expanded="true" />
-            <element signature="e#2232#2233#0" expanded="true" />
-            <element signature="e#2285#2286#0" expanded="true" />
-            <element signature="e#2319#2320#0" expanded="true" />
-            <element signature="e#2419#2420#0" expanded="true" />
-            <element signature="e#2443#2444#0" expanded="true" />
-            <element signature="e#2889#2890#0" expanded="true" />
-            <element signature="e#2927#2928#0" expanded="true" />
+            <element signature="e#2243#2244#0" expanded="true" />
+            <element signature="e#2281#2282#0" expanded="true" />
+            <element signature="e#2334#2335#0" expanded="true" />
+            <element signature="e#2368#2369#0" expanded="true" />
+            <element signature="e#2967#2968#0" expanded="true" />
+            <element signature="e#3005#3006#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jgzuke/intoxicmateandroid/tasks/SendCurrentInfoTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4787234">
+          <caret line="71" column="57" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

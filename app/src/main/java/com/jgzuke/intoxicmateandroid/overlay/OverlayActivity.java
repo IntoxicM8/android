@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
 import com.github.paolorotolo.appintro.AppIntro;
 import com.jgzuke.intoxicmateandroid.R;
@@ -24,6 +23,8 @@ import org.json.JSONObject;
  * Created by jgzuke on 15-06-14.
  */
 public class OverlayActivity extends AppIntro {
+    public static int windowsOpenCount = 0;
+
     private static int NUM_INTRO_SCREENS = 3;
 
     private WarningFragment[] mWarningFragments = {
@@ -39,6 +40,7 @@ public class OverlayActivity extends AppIntro {
 
     @Override
     public void init(Bundle savedInstanceState) {
+        windowsOpenCount ++;
         mResources = getResources();
         addSlides();
         showSkipButton(false);
@@ -74,6 +76,7 @@ public class OverlayActivity extends AppIntro {
 
     @Override
     public void onDonePressed() {
+        windowsOpenCount --;
         finish();
     }
 
@@ -99,6 +102,7 @@ public class OverlayActivity extends AppIntro {
 
     public void setWarningLevel(int level) {
         if(level < 2) {
+            windowsOpenCount --;
             finish();
         }
         mPager.setCurrentItem(mPager.getCurrentItem() + 1);

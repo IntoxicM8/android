@@ -65,7 +65,7 @@ public class SendCurrentInfoTask extends BaseSendInfoTask {
         }
         try {
             boolean isDrunk = result == null? false: result.getBoolean("drunk");
-            if(isDrunk) {
+            if(isDrunk && OverlayActivity.windowsOpenCount < 1) {
                 Intent intent = new Intent(mContext, OverlayActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
