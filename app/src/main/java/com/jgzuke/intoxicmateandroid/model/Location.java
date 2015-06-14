@@ -7,15 +7,6 @@ package com.jgzuke.intoxicmateandroid.model;
 public class Location extends UberModel {
 
     /**
-     * Human-readable address.
-     */
-    String address;
-
-    public String getAddress() {
-        return address;
-    }
-
-    /**
      * Latitude component of location.
      */
     double latitude;
@@ -32,5 +23,9 @@ public class Location extends UberModel {
     public double getLongitude() {
         return longitude;
     }
+    
+    int bearing;
+    
+    public int getBearing() { return bearing; }
 
 }
