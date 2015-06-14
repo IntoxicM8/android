@@ -105,7 +105,7 @@ public class OverlayActivity extends AppIntro {
     public void getData(JSONObject result, int requestCode) {
         if(requestCode == GetDataTask.CALL_EMERGENCY_CONTACT) {
             try {
-                String phone = "tel:" + result.getString("numberone").replace(/\D/g,'');
+                String phone = "tel:" + result.getString("numberone").replaceAll("[^\\d.]", "");
                 Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse(phone));
                 startActivity(intent);
