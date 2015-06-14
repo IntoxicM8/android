@@ -37,7 +37,7 @@ public class SendSettingsTask extends BaseSendInfoTask {
     }
 
     @Override
-    protected JSONArray doInBackground(Void... params) {
+    protected JSONObject doInBackground(Void... params) {
         try {
             addDateAndUUIDToJSON(mJSONObject);
 
@@ -57,7 +57,7 @@ public class SendSettingsTask extends BaseSendInfoTask {
     }
 
     @Override
-    protected void onPostExecute(JSONArray result) {
+    protected void onPostExecute(JSONObject result) {
         Log.e("myid", "onPostExecute");
         try {
             mActivity.onSendSettingsTaskResult(result);

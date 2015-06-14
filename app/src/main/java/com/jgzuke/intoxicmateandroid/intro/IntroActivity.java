@@ -225,7 +225,7 @@ public class IntroActivity extends AppIntro {
         json.put("tolerance", mTolerance.toString());
         json.put("travel", mTravel.toString());
         json.put("homelat", mHome.first.toString());
-        json.put("homelong", mHome.second.toString());
+        json.put("homelng", mHome.second.toString());
 
         json.put("nameone", mContacts[0].second);
         json.put("numberone", mContacts[0].first);
@@ -272,8 +272,8 @@ public class IntroActivity extends AppIntro {
         }
     }
 
-    public void onSendSettingsTaskResult(JSONArray result) throws JSONException {
-        boolean success = result == null? false: result.getBoolean(0);
+    public void onSendSettingsTaskResult(JSONObject result) throws JSONException {
+        boolean success = result == null? false: result.getString("shit").equals("works");
         if (success) {
             finish();
         } else {

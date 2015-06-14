@@ -32,7 +32,7 @@ public class SendConfirmationTask extends BaseSendInfoTask {
     }
 
     @Override
-    protected JSONArray doInBackground(Void... params) {
+    protected JSONObject doInBackground(Void... params) {
         try {
             Log.e("myid", "testing");
 
@@ -50,19 +50,7 @@ public class SendConfirmationTask extends BaseSendInfoTask {
             httppost.setEntity(entity);
 
             HttpResponse response = httpclient.execute(httppost);
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "iso-8859-1"), 8);
-            StringBuilder sb = new StringBuilder();
-            sb.append(reader.readLine() + "\n");
-            String line = "0";
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-            reader.close();
-            String result11 = sb.toString();
-
-            // parsing data
-            return new JSONArray(result11);
+            return getJSONFromResponse(response);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -70,7 +58,7 @@ public class SendConfirmationTask extends BaseSendInfoTask {
     }
 
     @Override
-    protected void onPostExecute(JSONArray result) {
+    protected void onPostExecute(JSONObject result) {
         //TODO check data
         //mActivity.onSendSettingsTaskResult(result);
     }

@@ -27,7 +27,7 @@ import java.util.Date;
 /**
  * Created by jgzuke on 15-06-14.
  */
-public abstract class BaseSendInfoTask extends AsyncTask<Void, Void, JSONArray> {
+public abstract class BaseSendInfoTask extends AsyncTask<Void, Void, JSONObject> {
 
     protected JSONObject mJSONObject;
     protected String postUrl;
@@ -59,7 +59,7 @@ public abstract class BaseSendInfoTask extends AsyncTask<Void, Void, JSONArray> 
         return time;
     }
 
-    protected JSONArray getJSONFromResponse(HttpResponse response) throws IOException, JSONException {
+    protected JSONObject getJSONFromResponse(HttpResponse response) throws IOException, JSONException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "iso-8859-1"), 8);
         StringBuilder sb = new StringBuilder();
         sb.append(reader.readLine() + "\n");
@@ -73,7 +73,6 @@ public abstract class BaseSendInfoTask extends AsyncTask<Void, Void, JSONArray> 
         Log.e("myid", result11);
 
         JSONObject jsonObject = new JSONObject(result11);
-        JSONArray jsonArray = jsonObject.getJSONArray("");
-        return jsonArray;
+        return jsonObject;
     }
 }
