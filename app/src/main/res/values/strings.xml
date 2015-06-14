@@ -13,21 +13,21 @@
     <string name="finish">Thanks!</string>
 
     <string name="warning_open">Are You Okay?</string>
-    <string name="warning_actions">How Do You Want To Get Back?</string>
-    <string name="warning_finish">Thanks!</string>
+    <string name="warning_actions">How do you want to get Home?</string>
+    <string name="warning_finish">Get home safe!</string>
 
-    <string name="welcome_description">Our goal is to help you stay safe by helping you get home, and letting your friends or family know if you are in trouble.</string>
-    <string name="age_description">SampleDescription</string>
-    <string name="gender_description">SampleDescription</string>
-    <string name="tolerance_description">SampleDescription</string>
-    <string name="home_description">SampleDescription</string>
-    <string name="contacts_description">SampleDescription</string>
-    <string name="uber_description">SampleDescription</string>
-    <string name="finish_description">Your information has been set, if something changes just open the app to modify your settings.</string>
+    <string name="welcome_description">Our goal is to help you stay safe by helping you get home, and letting your friends or family know if you are in trouble</string>
+    <string name="age_description">Please enter your age to help us decide when you may be inebriated</string>
+    <string name="gender_description">Please enter your gender to help us decide when you may be inebriated</string>
+    <string name="tolerance_description">Please enter your alcohol tolerance to help us decide when you may be inebriated</string>
+    <string name="home_description">This is where we try to bring you back to</string>
+    <string name="contacts_description">In case of emergency we will contact these people</string>
+    <string name="uber_description">Default way to get home</string>
+    <string name="finish_description">Your information has been set, if something changes just open the app to modify your settings</string>
 
-    <string name="open_description">SampleDescription</string>
-    <string name="action_description">SampleDescription</string>
-    <string name="finish_warning_description">Your information has been set, if something changes just open the app to modify your settings.</string>
+    <string name="open_description">If you need help, we will try to get you home safe</string>
+    <string name="action_description">If you don\'t want to leave quite yet you can always come back to this screen</string>
+    <string name="finish_warning_description">If you need more help, swipe back to use the other help options</string>
 
     <string name="intro_warning_empty_age">Age has not been selected</string>
     <string name="intro_warning_empty_gender">Gender has not been selected</string>

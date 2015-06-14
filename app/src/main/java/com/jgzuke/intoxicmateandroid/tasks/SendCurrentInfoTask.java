@@ -23,6 +23,7 @@ import org.json.JSONObject;
 public class SendCurrentInfoTask extends BaseSendInfoTask {
 
     private String mTimeStamp;
+    private String mPlaceID;
 
     public SendCurrentInfoTask(Context context, JSONObject JSONObject) {
         mContext = context;
@@ -58,12 +59,18 @@ public class SendCurrentInfoTask extends BaseSendInfoTask {
         Log.e("myid", "onPostExecute");
         Log.e("myid", result.toString());
         try {
+            mPlaceID = result.getString("place_id");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
             boolean isDrunk = result == null? false: result.getBoolean("drunk");
             if(isDrunk) {
                 Intent intent = new Intent(mContext, OverlayActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
                 OverlayActivity.setTimestamp(mTimeStamp);
+                OverlayActivity.setPlaceID(mPlaceID);
             }
         } catch (JSONException e) {
             e.printStackTrace();

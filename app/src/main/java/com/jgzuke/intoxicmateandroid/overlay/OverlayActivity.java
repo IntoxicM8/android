@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import com.github.paolorotolo.appintro.AppIntro;
 import com.jgzuke.intoxicmateandroid.R;
@@ -29,6 +30,7 @@ public class OverlayActivity extends AppIntro {
     private Resources mResources;
 
     private static String mTimestamp;
+    private static String mPlaceID;
 
     @Override
     public void init(Bundle savedInstanceState) {
@@ -51,12 +53,16 @@ public class OverlayActivity extends AppIntro {
         mTimestamp = timestamp;
     }
 
+    public static void setPlaceID(String placeID) {
+        mPlaceID = placeID;
+    }
+
     @Override
     public void onSkipPressed() { }
 
     @Override
     public void onDonePressed() {
-
+        finish();
     }
 
     /**
@@ -64,6 +70,7 @@ public class OverlayActivity extends AppIntro {
      */
     private void addSlides() {
         Context context = getApplicationContext();
+        WarningFragment.mOverlayActivity = this;
         for(int i = 0; i < NUM_INTRO_SCREENS; i++) {
             addSlide(mWarningFragments[i], context);
         }
@@ -79,19 +86,29 @@ public class OverlayActivity extends AppIntro {
     }
 
     public void setWarningLevel(int level) {
-        try {
-            new SendConfirmationTask(this, level, mTimestamp).execute();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
         if(level < 2) {
             finish();
-        } else {
-            mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+            Log.e("myid", "activityFinished");
+        }
+        mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+
+        try {
+            new SendConfirmationTask(this, level, mTimestamp, mPlaceID).execute();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
     public void setAction(int action) {
         mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+        if(action == 0) {
+
+        } else if(action == 1) {
+
+        } else if(action == 2) {
+
+        } else if(action == 3) {
+
+        }
     }
 }
