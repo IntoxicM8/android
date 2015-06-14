@@ -40,12 +40,12 @@ public class ContactPickerActivity extends Activity {
     }
 
     private void contactChosen(int pos) {
-        Bundle conData = new Bundle();
-        conData.putInt("contact_position", mMontactPosition);
-        conData.putString("contact_number", mPopulatedNumberList.get(pos));
-        conData.putString("contact_name", mPopulatedNameList.get(pos));
+        Bundle contactData = new Bundle();
+        contactData.putInt("contact_position", mMontactPosition);
+        contactData.putString("contact_number", mPopulatedNumberList.get(pos));
+        contactData.putString("contact_name", mPopulatedNameList.get(pos));
         Intent intent = new Intent();
-        intent.putExtras(conData);
+        intent.putExtras(contactData);
         setResult(1, intent);
         finish();
     }

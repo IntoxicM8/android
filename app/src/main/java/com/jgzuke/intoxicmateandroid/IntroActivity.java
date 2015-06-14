@@ -109,6 +109,7 @@ public class IntroActivity extends AppIntro {
     public void setHome(String home) {
         mHome = home;
         nextPage();
+        Toast.makeText(this, home, Toast.LENGTH_SHORT).show();
     }
 
     public void startContactPicker(int contactPosition) {
@@ -123,9 +124,8 @@ public class IntroActivity extends AppIntro {
     }
 
     public void selectCurrentLocation() {
-        Intent intent = new Intent(this, ContactPickerActivity.class);
-        intent.putExtra("contact_position", contactPosition);
-        startActivityForResult(intent, LOCATION_PICKER_CODE);
+        String mapLocation = null;
+        setHome(mapLocation);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent intent)
@@ -140,7 +140,9 @@ public class IntroActivity extends AppIntro {
             Pair contactInfo = new Pair(number, name);
             setContact(contactInfo, contactPosition);
         } else if(requestCode == LOCATION_PICKER_CODE) {
-
+            Bundle res = intent.getExtras();
+            String mapLocation = res.getString("map_location");
+            setHome(mapLocation);
         }
     }
 
