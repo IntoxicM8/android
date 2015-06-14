@@ -35,11 +35,8 @@ public abstract class BaseSendInfoTask extends AsyncTask<Void, Void, JSONObject>
     protected static String mUUID;
 
     protected void addDateAndUUIDToJSON(JSONObject json) throws JSONException {
-        Log.e("myid", "addDateAndUUIDToJSON");
         json.put("uuid", mUUID);
-        Log.e("myid", "test");
-        json.put("time", getTime());
-        Log.e("myid", "getTime");
+        json.put("timestamp", getTime());
     }
 
     public static void setUUID(String UUID) {
@@ -69,8 +66,6 @@ public abstract class BaseSendInfoTask extends AsyncTask<Void, Void, JSONObject>
         }
         reader.close();
         String result11 = sb.toString();
-
-        Log.e("myid", result11);
 
         JSONObject jsonObject = new JSONObject(result11);
         return jsonObject;

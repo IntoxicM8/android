@@ -220,12 +220,13 @@ public class IntroActivity extends AppIntro {
         }
 
         JSONObject json = new JSONObject();
-        json.put("age", mAge.toString());
+        json.put("age", mAge);
         json.put("gender", mGender? "male" : "female");
-        json.put("tolerance", mTolerance.toString());
-        json.put("travel", mTravel.toString());
-        json.put("homelat", mHome.first.toString());
-        json.put("homelng", mHome.second.toString());
+        json.put("tolerance", mTolerance);
+        json.put("travel", mTravel);
+        json.put("homelat", mHome.first);
+        json.put("homelng", mHome.second);
+        json.put("bpm", mHeartRate);
 
         json.put("nameone", mContacts[0].second);
         json.put("numberone", mContacts[0].first);
@@ -233,8 +234,6 @@ public class IntroActivity extends AppIntro {
         json.put("numbertwo", mContacts[1].first);
         json.put("namethree", mContacts[2].second);
         json.put("numberthree", mContacts[2].first);
-
-        json.put("heartrate", mHeartRate.toString());
         return json;
     }
 

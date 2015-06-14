@@ -22,16 +22,24 @@ import org.json.JSONObject;
 
 
 public class MainActivity extends ActionBarActivity {
-    private static final long ALARM_PERIOD = 20000L; //1800000L;
+    private static final long ALARM_PERIOD = 100000L; //1800000L;
+    private static final int INTRO_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setUpAlarmManager();
         setTaskUUID();
         Intent intent = new Intent(this, IntroActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, INTRO_REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == INTRO_REQUEST_CODE) {
+            setUpAlarmManager();
+        }
     }
 
     private void setUpAlarmManager() {
@@ -80,18 +88,18 @@ public class MainActivity extends ActionBarActivity {
 
         try {
             if (NetLocationTime < GPSLocationTime) {
-                json.put("lat", Double.toString(locationGPS.getLatitude()));
-                json.put("lng", Double.toString(locationGPS.getLongitude()));
+                json.put("lat", locationGPS.getLatitude());
+                json.put("lng", locationGPS.getLongitude());
             } else {
-                json.put("lat", Double.toString(locationNet.getLatitude()));
-                json.put("lng", Double.toString(locationNet.getLongitude()));
+                json.put("lat", locationNet.getLatitude());
+                json.put("lng", locationNet.getLongitude());
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         try {
-            json.put("heartrate", "80");
+            json.put("bpm", 80);
         } catch (JSONException e) {
             e.printStackTrace();
         }

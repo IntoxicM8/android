@@ -44,6 +44,8 @@ public class SendSettingsTask extends BaseSendInfoTask {
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httppost = new HttpPost(postUrl);
 
+            Log.e("myid", mJSONObject.toString());
+
             StringEntity entity = new StringEntity(mJSONObject.toString());
             entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
             httppost.setEntity(entity);
@@ -59,6 +61,7 @@ public class SendSettingsTask extends BaseSendInfoTask {
     @Override
     protected void onPostExecute(JSONObject result) {
         Log.e("myid", "onPostExecute");
+        Log.e("myid", result.toString());
         try {
             mActivity.onSendSettingsTaskResult(result);
         } catch (JSONException e) {

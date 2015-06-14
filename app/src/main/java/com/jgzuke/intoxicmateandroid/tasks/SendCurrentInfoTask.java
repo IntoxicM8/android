@@ -13,12 +13,9 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
-import org.json.JSONArray;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 
 /**
  * Created by jgzuke on 15-06-14.
@@ -34,16 +31,12 @@ public class SendCurrentInfoTask extends BaseSendInfoTask {
     @Override
     protected JSONObject doInBackground(Void... params) {
         try {
-            Log.e("myid", "testing");
-
             addDateAndUUIDToJSON(mJSONObject);
 
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httppost = new HttpPost(postUrl);
 
-            Log.e("myid", "testing2");
             Log.e("myid", mJSONObject.toString());
-            Log.e("myid", "testing3");
 
             StringEntity entity = new StringEntity(mJSONObject.toString());
             entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
@@ -59,6 +52,8 @@ public class SendCurrentInfoTask extends BaseSendInfoTask {
 
     @Override
     protected void onPostExecute(JSONObject result) {
+        Log.e("myid", "onPostExecute");
+        Log.e("myid", result.toString());
         try {
             boolean isDrunk = result == null? false: result.getBoolean("drunk");
             if(isDrunk) {
