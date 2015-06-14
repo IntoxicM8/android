@@ -1,20 +1,11 @@
-package com.jgzuke.intoxicmateandroid;
+package com.jgzuke.intoxicmateandroid.intro;
 
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Toast;
 
-import com.jgzuke.intoxicmateandroid.api.UberAuthTokenClient;
-import com.jgzuke.intoxicmateandroid.api.UberCallback;
-import com.jgzuke.intoxicmateandroid.model.User;
+import com.jgzuke.intoxicmateandroid.R;
 
 /**
  * Created by jgzuke on 15-06-13.

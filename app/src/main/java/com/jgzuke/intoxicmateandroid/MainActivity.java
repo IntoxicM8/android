@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 
+import com.jgzuke.intoxicmateandroid.intro.IntroActivity;
+
 
 public class MainActivity extends ActionBarActivity {
 

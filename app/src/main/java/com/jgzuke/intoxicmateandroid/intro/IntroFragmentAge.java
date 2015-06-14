@@ -1,11 +1,11 @@
-package com.jgzuke.intoxicmateandroid;
+package com.jgzuke.intoxicmateandroid.intro;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.jgzuke.intoxicmateandroid.R;
 
 /**
  * Created by jgzuke on 15-06-13.

@@ -1,4 +1,4 @@
-package com.jgzuke.intoxicmateandroid;
+package com.jgzuke.intoxicmateandroid.uber;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.jgzuke.intoxicmateandroid.R;
 import com.jgzuke.intoxicmateandroid.api.UberAPIClient;
 import com.jgzuke.intoxicmateandroid.api.UberCallback;
 import com.jgzuke.intoxicmateandroid.model.PriceEstimateList;

@@ -1,7 +1,7 @@
 package com.jgzuke.intoxicmateandroid.api;
 
 import com.jgzuke.intoxicmateandroid.BuildConfig;
-import com.jgzuke.intoxicmateandroid.Constants;
+import com.jgzuke.intoxicmateandroid.uber.Constants;
 import com.jgzuke.intoxicmateandroid.model.User;
 
 import retrofit.Callback;

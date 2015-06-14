@@ -1,14 +1,19 @@
-package com.jgzuke.intoxicmateandroid;
+package com.jgzuke.intoxicmateandroid.intro;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Pair;
 import android.widget.Toast;
 
 import com.github.paolorotolo.appintro.AppIntro;
+import com.jgzuke.intoxicmateandroid.ContactPickerActivity;
+import com.jgzuke.intoxicmateandroid.LocationPickerActivity;
+import com.jgzuke.intoxicmateandroid.R;
 
 /**
  * Created by jgzuke on 15-06-13.
@@ -125,6 +130,28 @@ public class IntroActivity extends AppIntro {
 
     public void selectCurrentLocation() {
         String mapLocation = null;
+
+        LocationManager mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        Location locationGPS = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        Location locationNet = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+
+        long GPSLocationTime = 0;
+        if (null != locationGPS) { GPSLocationTime = locationGPS.getTime(); }
+
+        long NetLocationTime = 0;
+
+        if (null != locationNet) {
+            NetLocationTime = locationNet.getTime();
+        }
+
+        if ( 0 < GPSLocationTime - NetLocationTime ) {
+            mapLocation = locationGPS.toString();
+        }
+        else {
+            mapLocation = locationNet.toString();
+        }
+        if(mapLocation == null) return;
+
         setHome(mapLocation);
     }
 

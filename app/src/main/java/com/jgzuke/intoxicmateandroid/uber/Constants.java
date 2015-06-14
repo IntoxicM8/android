@@ -1,4 +1,4 @@
-package com.jgzuke.intoxicmateandroid;
+package com.jgzuke.intoxicmateandroid.uber;
 
 import android.app.Activity;
 import android.content.pm.ApplicationInfo;

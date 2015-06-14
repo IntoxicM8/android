@@ -1,4 +1,4 @@
-package com.jgzuke.intoxicmateandroid;
+package com.jgzuke.intoxicmateandroid.uber;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import com.jgzuke.intoxicmateandroid.R;
 import com.jgzuke.intoxicmateandroid.api.UberAuthTokenClient;
 import com.jgzuke.intoxicmateandroid.api.UberCallback;
 import com.jgzuke.intoxicmateandroid.model.User;

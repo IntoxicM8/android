@@ -1,4 +1,4 @@
-package com.jgzuke.intoxicmateandroid;
+package com.jgzuke.intoxicmateandroid.intro;
 
 import android.support.v4.app.Fragment;
 
