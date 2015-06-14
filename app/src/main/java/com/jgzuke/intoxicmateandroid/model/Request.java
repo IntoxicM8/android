@@ -15,7 +15,7 @@ public class Request extends UberModel {
 	public int getEta() { return eta; }
 	
 	Vehicle vehicle;
-	public int getVehicle() { return vehicle; }
+	public Vehicle getVehicle() { return vehicle; }
 
 	Location location;
 	public Location getLocation() { return location; }

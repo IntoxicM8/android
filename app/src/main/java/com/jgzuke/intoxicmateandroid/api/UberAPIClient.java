@@ -104,13 +104,14 @@ public class UberAPIClient {
 
         //Posting code
         @POST("/requests")
-        void postRequest(      @Header("Authorization") String authToken,
-                               @Query("product_id") String productID,
-                               @Query("start_latitude") double startLatitude,
-                               @Query("start_longitude") double startLongitude,
-                               @Query("end_latitude") double endLatitude,
-                               @Query("end_longitude") double endLongitude,
-                               Callback<Request> callback);
+        void postRequest(@Header("Authorization") String authToken,
+                         @Query("product_id") String productID,
+                         @Query("start_latitude") double startLatitude,
+                         @Query("start_longitude") double startLongitude,
+                         @Query("end_latitude") double endLatitude,
+                         @Query("end_longitude") double endLongitude,
+                         Callback<Request> callback);
+    }
         
 
 

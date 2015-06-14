@@ -1,6 +1,6 @@
 package com.jgzuke.intoxicmateandroid.model;
 
-public Vehicle extends UberModel {
+public class Vehicle extends UberModel {
 	String make;
 	public String getMake() { return make; }
 	

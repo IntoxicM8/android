@@ -53,17 +53,20 @@ public class EndpointActivity extends ActionBarActivity {
                             }
                         });
                 break;
-            case 2:
+            /*case 2:
                 UberAPIClient.getUberV1APIClient().postRequest(getAccessToken(),
                         Constants.START_LATITUDE,
                         Constants.START_LONGITUDE,
+                        Constants.END_LATITUDE,
+                        Constants.END_LONGITUDE,
                         new UberCallback<TimeEstimateList>() {
                             @Override
                             public void success(TimeEstimateList timeEstimateList, Response response) {
                                 setupListAdapter("time", timeEstimateList.toString());
                             }
                         });
-                break;
+                break;*/
+        }
     }
 
     @Override

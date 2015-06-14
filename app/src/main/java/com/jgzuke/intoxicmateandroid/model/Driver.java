@@ -1,6 +1,6 @@
 package com.jgzuke.intoxicmateandroid.model;
 
-public Driver extends UberModel {
+public class Driver extends UberModel {
     String phone_number;
     public String getPhoneNumber() { return phone_number; }
     
