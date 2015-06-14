@@ -7,8 +7,8 @@
     <string name="age">Age</string>
     <string name="gender">Gender</string>
     <string name="tolerance">Tolerance</string>
-    <string name="home">Home Location</string>
-    <string name="contacts">Emergency Contacts</string>
+    <string name="home">Location</string>
+    <string name="contacts">Contacts</string>
     <string name="uber">Getting Home</string>
     <string name="finish">Thanks!</string>
 
