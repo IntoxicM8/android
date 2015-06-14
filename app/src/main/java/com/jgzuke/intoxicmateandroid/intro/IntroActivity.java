@@ -43,7 +43,7 @@ public class IntroActivity extends AppIntro {
     private Boolean mGender = null;
     private Integer mTolerance = null;
     private Integer mTravel = null;
-    private String mHome = null;
+    private Pair<Double, Double> mHome = null;
     private Pair<String, String> [] mContacts = new Pair [3];
 
     private ViewPager mPager;
@@ -135,7 +135,7 @@ public class IntroActivity extends AppIntro {
         startActivity(intent);
     }
 
-    public void setHome(String home) {
+    public void setHome(Pair<Double, Double> home) {
         mHome = home;
         nextPage();
     }
@@ -152,7 +152,9 @@ public class IntroActivity extends AppIntro {
     }
 
     public void selectCurrentLocation() {
-        String mapLocation;
+        double mapLat;
+        double mapLong;
+        Pair<Double, Double> mapCoords = null;
 
         LocationManager mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Location locationGPS = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -168,13 +170,13 @@ public class IntroActivity extends AppIntro {
         }
 
         if ( 0 < GPSLocationTime - NetLocationTime ) {
-            mapLocation = locationGPS.toString();
+            mapCoords = new Pair(locationGPS.getLatitude(), locationGPS.getLongitude());
         } else {
-            mapLocation = locationNet.toString();
+            mapCoords = new Pair(locationNet.getLatitude(), locationNet.getLongitude());
         }
-        if(mapLocation == null) return;
+        if(mapCoords == null) return;
 
-        setHome(mapLocation);
+        setHome(mapCoords);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent intent)
@@ -190,8 +192,9 @@ public class IntroActivity extends AppIntro {
             setContact(contactInfo, contactPosition);
         } else if(requestCode == LOCATION_PICKER_CODE) {
             Bundle res = intent.getExtras();
-            String mapLocation = res.getString("map_location");
-            setHome(mapLocation);
+            double mapLat = res.getDouble("map_lat");
+            double mapLong = res.getDouble("map_long");
+            setHome(new Pair(mapLat, mapLong));
         }
     }
 
@@ -215,7 +218,8 @@ public class IntroActivity extends AppIntro {
         json.put("gender", mGender.toString());
         json.put("tolerance", mTolerance.toString());
         json.put("travel", mTravel.toString());
-        json.put("home", mHome);
+        json.put("homelat", mHome.first.toString());
+        json.put("homelong", mHome.second.toString());
 
         json.put("nameone", mContacts[0].first);
         json.put("numberone", mContacts[0].second);

@@ -25,7 +25,8 @@ import com.jgzuke.intoxicmateandroid.R;
 public class LocationPickerActivity extends FragmentActivity {
 
     private GoogleMap mMap;
-    private String mLocation;
+    private double mLat;
+    private double mLong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,8 @@ public class LocationPickerActivity extends FragmentActivity {
             mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
                 public void onMapClick(LatLng latLng) {
-                    mLocation = latLng.toString();
+                    mLat = latLng.latitude;
+                    mLong = latLng.longitude;
                     makeSetLocationDialog();
                 }
             });
@@ -87,7 +89,8 @@ public class LocationPickerActivity extends FragmentActivity {
 
     private void locationSelected() {
         Bundle mapData = new Bundle();
-        mapData.putString("map_location", mLocation);
+        mapData.putDouble("map_lat", mLat);
+        mapData.putDouble("map_long", mLong);
         Intent intent = new Intent();
         intent.putExtras(mapData);
         setResult(1, intent);
