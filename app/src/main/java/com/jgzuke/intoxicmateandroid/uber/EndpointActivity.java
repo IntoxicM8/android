@@ -37,6 +37,7 @@ public class EndpointActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        ProductList products;
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -49,23 +50,23 @@ public class EndpointActivity extends ActionBarActivity {
                         new UberCallback<ProductList>() {
                             @Override
                             public void success(ProductList productList, Response response) {
+                                products = productList;
                                 setupListAdapter("products", productList.toString());
                             }
                         });
-                break;
-            /*case 2:
                 UberAPIClient.getUberV1APIClient().postRequest(getAccessToken(),
+                        products[0].product_id;
                         Constants.START_LATITUDE,
                         Constants.START_LONGITUDE,
                         Constants.END_LATITUDE,
                         Constants.END_LONGITUDE,
-                        new UberCallback<TimeEstimateList>() {
+                        new UberCallback<Request>() {
                             @Override
-                            public void success(TimeEstimateList timeEstimateList, Response response) {
-                                setupListAdapter("time", timeEstimateList.toString());
+                            public void success(Request request, Response response) {
+                                setupListAdapter("request", request.toString());
                             }
                         });
-                break;*/
+                break;
         }
     }
 
