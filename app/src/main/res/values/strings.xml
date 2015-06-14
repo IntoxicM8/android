@@ -45,4 +45,14 @@
     <string name="contact_option_1">Emergency Contact #1</string>
     <string name="contact_option_2">Emergency Contact #2</string>
     <string name="contact_option_3">Emergency Contact #3</string>
+
+    <string name="demo_list_header_text">\nCongratulations! you have successfully authenticated and your token is: %s\n\nTest the following functions of the api!\n</string>
+    <string name="products">Products!</string>
+    <string name="time_estimates">Time Estimates!</string>
+    <string name="price_estimates">Price Estimates!</string>
+    <string name="history_v1">History! (v1)</string>
+    <string name="history_v1_1">History! (v1.1)</string>
+    <string name="me">Me!</string>
+    <string name="endpoint_list_header_text">Welcome to the %s endpoint!</string>
+    <string name="endpoint_list_result_text">Here is the result of a call to %s:</string>
 </resources>

@@ -29,6 +29,7 @@ public class UberActivity extends ActionBarActivity {
         WebView webView = (WebView) findViewById(R.id.web_view);
         webView.getSettings().setJavaScriptEnabled(true);
 
+
         webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
                 UberActivity.this.setProgress(progress * 1000);
