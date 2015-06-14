@@ -3,6 +3,7 @@ package com.jgzuke.intoxicmateandroid.tasks;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 
 import com.jgzuke.intoxicmateandroid.MainActivity;
 
@@ -19,6 +20,8 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by jgzuke on 15-06-14.
@@ -71,6 +74,17 @@ public abstract class BaseSendInfoTask extends AsyncTask<Void, Void, JSONArray> 
     }
 
     private String getTime() {
-        //2015-06-14 03:19:21
+        Calendar c = Calendar.getInstance();
+        Date date = c.getTime();
+        Log.e("myid", "date: " + date.toString());
+        String time =   Integer.toString(c.get(Calendar.YEAR)) + "-"
+                        + Integer.toString(c.get(Calendar.MONTH)) + "-"
+                        + Integer.toString(c.get(Calendar.DAY_OF_MONTH)) + " "
+                        + Integer.toString(c.get(Calendar.HOUR)) + ":"
+                        + Integer.toString(c.get(Calendar.MINUTE)) + ":"
+                        + Integer.toString(c.get(Calendar.SECOND));
+
+        Log.e("myid", "time: " + time);
+        return time;
     }
 }

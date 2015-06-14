@@ -1,10 +1,12 @@
 package com.jgzuke.intoxicmateandroid.tasks;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 
 import com.jgzuke.intoxicmateandroid.MainActivity;
 import com.jgzuke.intoxicmateandroid.intro.IntroActivity;
+import com.jgzuke.intoxicmateandroid.overlay.OverlayActivity;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -36,7 +38,9 @@ public class SendCurrentInfoTask extends BaseSendInfoTask {
         try {
             boolean isDrunk = result == null? false: result.getBoolean(0);
             if(isDrunk) {
-
+                Intent intent = new Intent(mContext, OverlayActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(intent);
             }
         } catch (JSONException e) {
             e.printStackTrace();
