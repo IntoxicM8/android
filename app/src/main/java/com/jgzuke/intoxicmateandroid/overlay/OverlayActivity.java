@@ -1,6 +1,9 @@
 package com.jgzuke.intoxicmateandroid.overlay;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -33,6 +36,15 @@ public class OverlayActivity extends AppIntro {
         addSlides();
         showSkipButton(false);
         mPager = (ViewPager) findViewById(R.id.view_pager);
+        Intent i = new Intent();
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Notification.Builder nb = new Notification.Builder(this)
+                .setContentTitle("IntoxicM8")
+                .setContentText("Are you okay?")
+                .setSmallIcon(R.drawable.ic_launcher);
+        Notification n = nb.build();
+        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(1, n);
     }
 
     public static void setTimestamp(String timestamp) {
