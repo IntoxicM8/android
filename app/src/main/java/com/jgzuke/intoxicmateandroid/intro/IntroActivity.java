@@ -266,8 +266,9 @@ public class IntroActivity extends AppIntro {
         }
     }
 
-    public void onSendSettingsTaskResult(JSONArray result) {
-        if (result != null) {
+    public void onSendSettingsTaskResult(JSONArray result) throws JSONException {
+        boolean success = result == null? false: result.getBoolean(0);
+        if (success) {
             finish();
         } else {
             Toast.makeText(this, mResources.getString(R.string.send_settings_error), Toast.LENGTH_SHORT).show();

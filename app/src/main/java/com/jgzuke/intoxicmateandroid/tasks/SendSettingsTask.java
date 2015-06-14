@@ -27,11 +27,12 @@ public class SendSettingsTask extends BaseSendInfoTask {
     public SendSettingsTask(IntroActivity activity, JSONObject JSONObject) {
         mJSONObject = JSONObject;
         mActivity = activity;
+        mContext = activity;
         postUrl = "";
     }
 
     @Override
     protected void onPostExecute(JSONArray result) {
-        mActivity.onSendSettingsTaskResult(result);
+
     }
 }

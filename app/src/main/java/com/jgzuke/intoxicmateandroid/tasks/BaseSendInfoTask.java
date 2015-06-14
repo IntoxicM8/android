@@ -1,6 +1,8 @@
 package com.jgzuke.intoxicmateandroid.tasks;
 
+import android.content.Context;
 import android.os.AsyncTask;
+import android.telephony.TelephonyManager;
 
 import com.jgzuke.intoxicmateandroid.MainActivity;
 
@@ -12,6 +14,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -24,12 +27,15 @@ public abstract class BaseSendInfoTask extends AsyncTask<Void, Void, JSONArray> 
 
     protected JSONObject mJSONObject;
     protected String postUrl;
+    protected Context mContext;
 
     @Override
     protected JSONArray doInBackground(Void... params) {
         try {
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httppost = new HttpPost(postUrl);
+
+            addDateAndUUIDToJSON(mJSONObject);
 
             StringEntity entity = new StringEntity(mJSONObject.toString());
             entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
@@ -52,5 +58,19 @@ public abstract class BaseSendInfoTask extends AsyncTask<Void, Void, JSONArray> 
             e.printStackTrace();
             return null;
         }
+    }
+
+    protected void addDateAndUUIDToJSON(JSONObject json) throws JSONException {
+        json.put("uuid", getUUID());
+        json.put("time", getTime());
+    }
+
+    private String getUUID() {
+        TelephonyManager tManager = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+        return tManager.getDeviceId();
+    }
+
+    private String getTime() {
+        //2015-06-14 03:19:21
     }
 }

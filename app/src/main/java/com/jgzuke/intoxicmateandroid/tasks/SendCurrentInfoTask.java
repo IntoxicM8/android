@@ -1,5 +1,6 @@
 package com.jgzuke.intoxicmateandroid.tasks;
 
+import android.content.Context;
 import android.os.AsyncTask;
 
 import com.jgzuke.intoxicmateandroid.MainActivity;
@@ -13,6 +14,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -23,17 +25,21 @@ import java.io.InputStreamReader;
  */
 public class SendCurrentInfoTask extends BaseSendInfoTask {
 
-    private MainActivity mActivity;
-
-    public SendCurrentInfoTask(MainActivity activity, JSONObject JSONObject) {
+    public SendCurrentInfoTask(Context context, JSONObject JSONObject) {
+        mContext = context;
         mJSONObject = JSONObject;
-        mActivity = activity;
         postUrl = "";
     }
 
     @Override
     protected void onPostExecute(JSONArray result) {
-        //TODO check data
-        //mActivity.onSendSettingsTaskResult(result);
+        try {
+            boolean isDrunk = result == null? false: result.getBoolean(0);
+            if(isDrunk) {
+
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

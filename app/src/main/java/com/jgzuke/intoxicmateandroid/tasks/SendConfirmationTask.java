@@ -1,5 +1,7 @@
 package com.jgzuke.intoxicmateandroid.tasks;
 
+import android.content.Context;
+
 import com.jgzuke.intoxicmateandroid.MainActivity;
 
 import org.json.JSONArray;
@@ -11,12 +13,10 @@ import org.json.JSONObject;
  */
 public class SendConfirmationTask extends BaseSendInfoTask {
 
-    private MainActivity mActivity;
-
-    public SendConfirmationTask(MainActivity activity, boolean isDrunk) throws JSONException {
+    public SendConfirmationTask(Context context, Boolean isDrunk) throws JSONException {
+        mContext = context;
         mJSONObject = new JSONObject();
-        mJSONObject.put("drunk", isDrunk? "true" : "false");
-        mActivity = activity;
+        mJSONObject.put("drunk", isDrunk.toString());
         postUrl = "";
     }
 
