@@ -138,7 +138,6 @@ public class IntroActivity extends AppIntro {
     public void setHome(String home) {
         mHome = home;
         nextPage();
-        Toast.makeText(this, home, Toast.LENGTH_SHORT).show();
     }
 
     public void startContactPicker(int contactPosition) {
@@ -204,6 +203,13 @@ public class IntroActivity extends AppIntro {
     }
 
     private JSONObject getJSON() throws JSONException {
+        if(mContacts[1] == null) {
+            mContacts[1] = new Pair("empty", "empty");
+        }
+        if(mContacts[2] == null) {
+            mContacts[2] = new Pair("empty", "empty");
+        }
+
         JSONObject json = new JSONObject();
         json.put("age", mAge.toString());
         json.put("gender", mGender.toString());
