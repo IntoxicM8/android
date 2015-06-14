@@ -2,12 +2,10 @@ package com.jgzuke.intoxicmateandroid.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
 /**
- * Created by victorsima on 3/23/15.
+ * Created by naren on 14/06/15.
  */
 public class RequestBody {
-
     public RequestBody(String productId, double startLatitude, double startLongitude,
                        double endLatitude, double endLongitude, String surgeConfirmationId) {
         this.productId = productId;

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -13,6 +14,7 @@ import com.jgzuke.intoxicmateandroid.api.UberAPIClient;
 import com.jgzuke.intoxicmateandroid.api.UberCallback;
 import com.jgzuke.intoxicmateandroid.model.Request;
 import com.jgzuke.intoxicmateandroid.model.ProductList;
+import com.jgzuke.intoxicmateandroid.model.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,20 +48,19 @@ public class EndpointActivity extends ActionBarActivity {
                         new UberCallback<ProductList>() {
                             @Override
                             public void success(ProductList productList, Response response) {
-
-                                UberAPIClient.getUberV1APIClient().postRequest(getAccessToken(),
-                                        productList.getProducts().get(0).getProductId(),
-                                        Constants.START_LATITUDE,
-                                        Constants.START_LONGITUDE,
-                                        Constants.END_LATITUDE,
-                                        Constants.END_LONGITUDE,
+                                UberAPIClient.getUberV1APIClient().postRequest(getAccessToken(), new RequestBody(productList.getProducts().get(0).getProductId(),
+                                                Constants.START_LATITUDE,
+                                                Constants.START_LONGITUDE,
+                                                Constants.END_LATITUDE,
+                                                Constants.END_LONGITUDE, null),
                                         new UberCallback<Request>() {
                                             @Override
                                             public void success(Request request, Response response) {
+                                                Log.e("request", request.toString());
                                                 setupListAdapter("request", request.toString());
                                             }
                                         });
-                                setupListAdapter("products", productList.toString());
+                                //setupListAdapter("products", productList.toString());
                             }
                         });
                 break;

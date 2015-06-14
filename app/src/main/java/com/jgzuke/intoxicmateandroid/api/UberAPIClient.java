@@ -5,6 +5,7 @@ import com.jgzuke.intoxicmateandroid.uber.Constants;
 import com.jgzuke.intoxicmateandroid.model.PriceEstimateList;
 import com.jgzuke.intoxicmateandroid.model.ProductList;
 import com.jgzuke.intoxicmateandroid.model.TimeEstimateList;
+import com.jgzuke.intoxicmateandroid.model.RequestBody;
 import com.jgzuke.intoxicmateandroid.model.Request;
 
 import retrofit.Callback;
@@ -14,6 +15,8 @@ import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.Header;
 import retrofit.http.Query;
+import retrofit.http.Body;
+
 
 public class UberAPIClient {
 
@@ -104,13 +107,7 @@ public class UberAPIClient {
 
         //Posting code
         @POST("/requests")
-        void postRequest(@Header("Authorization") String authToken,
-                         @Query("product_id") String productID,
-                         @Query("start_latitude") double startLatitude,
-                         @Query("start_longitude") double startLongitude,
-                         @Query("end_latitude") double endLatitude,
-                         @Query("end_longitude") double endLongitude,
-                         Callback<Request> callback);
+        void postRequest(@Header("Authorization") String authToken, @Body RequestBody requestBody, Callback<Request> callback);
     }
         
 
