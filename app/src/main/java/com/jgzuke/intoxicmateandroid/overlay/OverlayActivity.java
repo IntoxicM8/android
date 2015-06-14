@@ -10,14 +10,24 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.github.paolorotolo.appintro.AppIntro;
 import com.jgzuke.intoxicmateandroid.R;
+import com.jgzuke.intoxicmateandroid.api.UberAPIClient;
+import com.jgzuke.intoxicmateandroid.api.UberCallback;
+import com.jgzuke.intoxicmateandroid.model.ProductList;
+import com.jgzuke.intoxicmateandroid.model.Request;
+import com.jgzuke.intoxicmateandroid.model.RequestBody;
 import com.jgzuke.intoxicmateandroid.tasks.GetDataTask;
 import com.jgzuke.intoxicmateandroid.tasks.SendConfirmationTask;
+import com.jgzuke.intoxicmateandroid.uber.Constants;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import retrofit.client.Response;
 
 /**
  * Created by jgzuke on 15-06-14.
@@ -134,6 +144,9 @@ public class OverlayActivity extends AppIntro {
     public void setAction(int action) {
         if(action == 0) {
 
+            Toast.makeText(getApplicationContext(), "An Uber is coming to save you", Toast.LENGTH_LONG).show();
+
+
         } else if(action == 1) {
 
         } else if(action == 2) {
@@ -141,5 +154,8 @@ public class OverlayActivity extends AppIntro {
         } else if(action == 3) {
             new GetDataTask(this, null, GetDataTask.CALL_EMERGENCY_CONTACT);
         }
+    }
+    private String getAccessToken() {
+        return getIntent().getStringExtra("token_type") + " " + getIntent().getStringExtra("access_token");
     }
 }

@@ -89,7 +89,6 @@ public class UberActivity extends ActionBarActivity {
                     new UberCallback<User>() {
                         @Override
                         public void success(User user, Response response) {
-                            DemoActivity.start(UberActivity.this, user.getAccessToken(), user.getTokenType());
                             finish();
                         }
                     });
